@@ -1,7 +1,3 @@
-# No longer maintained
-
-I'm backing off maintaining this library due to a lack of motivation, time and usage of docker, contact me on twitter https://twitter.com/joelwurtz if you wish to take over this repository (or just do a fork).
-
 # Docker PHP Api
 
 Generated API Client from OpenAPI specification of Docker, by Jane OpenAPI Client generator.
