@@ -9,7 +9,13 @@
         }
     },
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "symfony/serializer": "^4.4 || ^5.0",
+        "symfony/options-resolver": "^4.4 || ^5.0",
+        "php-http/client-common": "^2.0",
+        "php-http/message-factory": "^1.0",
+        "php-http/multipart-stream-builder": "^1.0",
+        "jane-php/json-schema-runtime": "^6.2"
     },
     "require-dev": {
         "jane-php/open-api-2": "^6.2",
