@@ -26,13 +26,19 @@ info:
   x-logo:
     url: "https://docs.docker.com/images/logo-docker-main.png"
   description: |
-    The Engine API is an HTTP API served by Docker Engine. It is the API the Docker client uses to communicate with the Engine, so everything the Docker client can do can be done with the API.
+    The Engine API is an HTTP API served by Docker Engine. It is the API the
+    Docker client uses to communicate with the Engine, so everything the Docker
+    client can do can be done with the API.
 
-    Most of the client's commands map directly to API endpoints (e.g. `docker ps` is `GET /containers/json`). The notable exception is running containers, which consists of several API calls.
+    Most of the client's commands map directly to API endpoints (e.g. `docker ps`
+    is `GET /containers/json`). The notable exception is running containers,
+    which consists of several API calls.
 
     # Errors
 
-    The API uses standard HTTP status codes to indicate the success or failure of the API call. The body of the response will be JSON in the following format:
+    The API uses standard HTTP status codes to indicate the success or failure
+    of the API call. The body of the response will be JSON in the following
+    format:
 
     ```
     {
@@ -65,7 +71,11 @@ info:
 
     # Authentication
 
-    Authentication for registries is handled client side. The client has to send authentication details to various endpoints that need to communicate with registries, such as `POST /images/(name)/push`. These are sent as `X-Registry-Auth` header as a [base64url encoded](https://tools.ietf.org/html/rfc4648#section-5) (JSON) string with the following structure:
+    Authentication for registries is handled client side. The client has to send
+    authentication details to various endpoints that need to communicate with
+    registries, such as `POST /images/(name)/push`. These are sent as
+    `X-Registry-Auth` header as a [base64url encoded](https://tools.ietf.org/html/rfc4648#section-5)
+    (JSON) string with the following structure:
 
     ```
     {
@@ -76,9 +86,11 @@ info:
     }
     ```
 
-    The `serveraddress` is a domain/IP without a protocol. Throughout this structure, double quotes are required.
+    The `serveraddress` is a domain/IP without a protocol. Throughout this
+    structure, double quotes are required.
 
-    If you have already got an identity token from the [`/auth` endpoint](#operation/SystemAuth), you can just pass this instead of credentials:
+    If you have already got an identity token from the [`/auth` endpoint](#operation/SystemAuth),
+    you can just pass this instead of credentials:
 
     ```
     {
@@ -104,7 +116,9 @@ tags:
   - name: "Network"
     x-displayName: "Networks"
     description: |
-      Networks are user-defined networks that containers can be attached to. See the [networking documentation](https://docs.docker.com/network/) for more information.
+      Networks are user-defined networks that containers can be attached to.
+      See the [networking documentation](https://docs.docker.com/network/)
+      for more information.
   - name: "Volume"
     x-displayName: "Volumes"
     description: |
@@ -112,34 +126,46 @@ tags:
   - name: "Exec"
     x-displayName: "Exec"
     description: |
-      Run new commands inside running containers. Refer to the [command-line reference](https://docs.docker.com/engine/reference/commandline/exec/) for more information.
+      Run new commands inside running containers. Refer to the
+      [command-line reference](https://docs.docker.com/engine/reference/commandline/exec/)
+      for more information.
 
-      To exec a command in a container, you first need to create an exec instance, then start it. These two API endpoints are wrapped up in a single command-line command, `docker exec`.
+      To exec a command in a container, you first need to create an exec instance,
+      then start it. These two API endpoints are wrapped up in a single command-line
+      command, `docker exec`.
+
   # Swarm things
   - name: "Swarm"
     x-displayName: "Swarm"
     description: |
-      Engines can be clustered together in a swarm. Refer to the [swarm mode documentation](https://docs.docker.com/engine/swarm/) for more information.
+      Engines can be clustered together in a swarm. Refer to the
+      [swarm mode documentation](https://docs.docker.com/engine/swarm/)
+      for more information.
   - name: "Node"
     x-displayName: "Nodes"
     description: |
-      Nodes are instances of the Engine participating in a swarm. Swarm mode must be enabled for these endpoints to work.
+      Nodes are instances of the Engine participating in a swarm. Swarm mode
+      must be enabled for these endpoints to work.
   - name: "Service"
     x-displayName: "Services"
     description: |
-      Services are the definitions of tasks to run on a swarm. Swarm mode must be enabled for these endpoints to work.
+      Services are the definitions of tasks to run on a swarm. Swarm mode must
+      be enabled for these endpoints to work.
   - name: "Task"
     x-displayName: "Tasks"
     description: |
-      A task is a container running on a swarm. It is the atomic scheduling unit of swarm. Swarm mode must be enabled for these endpoints to work.
+      A task is a container running on a swarm. It is the atomic scheduling unit
+      of swarm. Swarm mode must be enabled for these endpoints to work.
   - name: "Secret"
     x-displayName: "Secrets"
     description: |
-      Secrets are sensitive data that can be used by services. Swarm mode must be enabled for these endpoints to work.
+      Secrets are sensitive data that can be used by services. Swarm mode must
+      be enabled for these endpoints to work.
   - name: "Config"
     x-displayName: "Configs"
     description: |
-      Configs are application configurations that can be used by services. Swarm mode must be enabled for these endpoints to work.
+      Configs are application configurations that can be used by services. Swarm
+      mode must be enabled for these endpoints to work.
   # System things
   - name: "Plugin"
     x-displayName: "Plugins"
@@ -241,7 +267,8 @@ definitions:
           - ["gpu", "nvidia", "compute"]
       Options:
         description: |
-          Driver-specific options, specified as a key/value pairs. These options are passed directly to the driver.
+          Driver-specific options, specified as a key/value pairs. These options
+          are passed directly to the driver.
         type: "object"
         additionalProperties:
           type: "string"
@@ -344,9 +371,11 @@ definitions:
 
   RestartPolicy:
     description: |
-      The behavior to apply when the container exits. The default is not to restart.
+      The behavior to apply when the container exits. The default is not to
+      restart.
 
-      An ever increasing delay (double the previous delay, starting at 100ms) is added before each restart to prevent flooding the server.
+      An ever increasing delay (double the previous delay, starting at 100ms) is
+      added before each restart to prevent flooding the server.
     type: "object"
     properties:
       Name:
@@ -373,7 +402,8 @@ definitions:
       # Applicable to all platforms
       CpuShares:
         description: |
-          An integer value representing this container's relative CPU weight versus other containers.
+          An integer value representing this container's relative CPU weight
+          versus other containers.
         type: "integer"
       Memory:
         description: "Memory limit in bytes."
@@ -383,7 +413,10 @@ definitions:
       # Applicable to UNIX platforms
       CgroupParent:
         description: |
-          Path to `cgroups` under which the container's `cgroup` is created. If the path is not absolute, the path is considered to be relative to the `cgroups` path of the init process. Cgroups are created if they do not already exist.
+          Path to `cgroups` under which the container's `cgroup` is created. If
+          the path is not absolute, the path is considered to be relative to the
+          `cgroups` path of the init process. Cgroups are created if they do not
+          already exist.
         type: "string"
       BlkioWeight:
         description: "Block IO weight (relative weight)."
@@ -457,12 +490,14 @@ definitions:
         format: "int64"
       CpuRealtimePeriod:
         description: |
-          The length of a CPU real-time period in microseconds. Set to 0 to allocate no time allocated to real-time tasks.
+          The length of a CPU real-time period in microseconds. Set to 0 to
+          allocate no time allocated to real-time tasks.
         type: "integer"
         format: "int64"
       CpuRealtimeRuntime:
         description: |
-          The length of a CPU real-time runtime in microseconds. Set to 0 to allocate no time allocated to real-time tasks.
+          The length of a CPU real-time runtime in microseconds. Set to 0 to
+          allocate no time allocated to real-time tasks.
         type: "integer"
         format: "int64"
       CpusetCpus:
@@ -472,7 +507,8 @@ definitions:
         example: "0-3"
       CpusetMems:
         description: |
-          Memory nodes (MEMs) in which to allow execution (0-3, 0,1). Only effective on NUMA systems.
+          Memory nodes (MEMs) in which to allow execution (0-3, 0,1). Only
+          effective on NUMA systems.
         type: "string"
       Devices:
         description: "A list of devices to add to the container."
@@ -506,12 +542,14 @@ definitions:
         format: "int64"
       MemorySwap:
         description: |
-          Total memory limit (memory + swap). Set as `-1` to enable unlimited swap.
+          Total memory limit (memory + swap). Set as `-1` to enable unlimited
+          swap.
         type: "integer"
         format: "int64"
       MemorySwappiness:
         description: |
-          Tune a container's memory swappiness behavior. Accepts an integer between 0 and 100.
+          Tune a container's memory swappiness behavior. Accepts an integer
+          between 0 and 100.
         type: "integer"
         format: "int64"
         minimum: 0
@@ -525,12 +563,15 @@ definitions:
         type: "boolean"
       Init:
         description: |
-          Run an init inside the container that forwards signals and reaps processes. This field is omitted if empty, and the default (as configured on the daemon) is used.
+          Run an init inside the container that forwards signals and reaps
+          processes. This field is omitted if empty, and the default (as
+          configured on the daemon) is used.
         type: "boolean"
         x-nullable: true
       PidsLimit:
         description: |
-          Tune a container's PIDs limit. Set `0` or `-1` for unlimited, or `null` to not change.
+          Tune a container's PIDs limit. Set `0` or `-1` for unlimited, or `null`
+          to not change.
         type: "integer"
         format: "int64"
         x-nullable: true
@@ -10913,7 +10954,11 @@ paths:
           in: "query"
           type: "string"
           description: |
-            A JSON encoded value of the filters (a `map[string][]string`) to process on the configs list. Available filters:
+            A JSON encoded value of the filters (a `map[string][]string`) to
+            process on the configs list.
+
+            Available filters:
+
             - `id=<config id>`
             - `label=<key> or label=<key>=value`
             - `name=<config name>`
@@ -11056,10 +11101,15 @@ paths:
           in: "body"
           schema:
             $ref: "#/definitions/ConfigSpec"
-          description: "The spec of the config to update. Currently, only the Labels field can be updated. All other fields must remain unchanged from the [ConfigInspect endpoint](#operation/ConfigInspect) response values."
+          description: |
+            The spec of the config to update. Currently, only the Labels field
+            can be updated. All other fields must remain unchanged from the
+            [ConfigInspect endpoint](#operation/ConfigInspect) response values.
         - name: "version"
           in: "query"
-          description: "The version number of the config object being updated. This is required to avoid conflicting writes."
+          description: |
+            The version number of the config object being updated. This is
+            required to avoid conflicting writes.
           type: "integer"
           format: "int64"
           required: true
