@@ -27,8 +27,6 @@ class NetworksIdConnectPostBody
 
     /**
      * The ID or name of the container to connect to the network.
-     *
-     * @return string
      */
     public function getContainer(): ?string
     {
@@ -37,10 +35,6 @@ class NetworksIdConnectPostBody
 
     /**
      * The ID or name of the container to connect to the network.
-     *
-     * @param string $container
-     *
-     * @return self
      */
     public function setContainer(?string $container): self
     {
@@ -51,8 +45,6 @@ class NetworksIdConnectPostBody
 
     /**
      * Configuration for a network endpoint.
-     *
-     * @return EndpointSettings
      */
     public function getEndpointConfig(): ?EndpointSettings
     {
@@ -61,10 +53,6 @@ class NetworksIdConnectPostBody
 
     /**
      * Configuration for a network endpoint.
-     *
-     * @param EndpointSettings $endpointConfig
-     *
-     * @return self
      */
     public function setEndpointConfig(?EndpointSettings $endpointConfig): self
     {

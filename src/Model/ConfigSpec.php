@@ -25,18 +25,20 @@ class ConfigSpec
      */
     protected $labels;
     /**
-     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-3.2)).
-    config data.
-
+     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5)).
      *
      * @var string
      */
     protected $data;
+    /**
+     * Driver represents a driver (network, logging, secrets).
+     *
+     * @var Driver
+     */
+    protected $templating;
 
     /**
      * User-defined name of the config.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -45,10 +47,6 @@ class ConfigSpec
 
     /**
      * User-defined name of the config.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -60,7 +58,7 @@ class ConfigSpec
     /**
      * User-defined key/value metadata.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getLabels(): ?\ArrayObject
     {
@@ -70,9 +68,7 @@ class ConfigSpec
     /**
      * User-defined key/value metadata.
      *
-     * @param string[] $labels
-     *
-     * @return self
+     * @param string[]|null $labels
      */
     public function setLabels(?\ArrayObject $labels): self
     {
@@ -82,11 +78,7 @@ class ConfigSpec
     }
 
     /**
-     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-3.2)).
-    config data.
-
-     *
-     * @return string
+     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5)).
      */
     public function getData(): ?string
     {
@@ -94,17 +86,29 @@ class ConfigSpec
     }
 
     /**
-     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-3.2)).
-    config data.
-
-     *
-     * @param string $data
-     *
-     * @return self
+     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5)).
      */
     public function setData(?string $data): self
     {
         $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * Driver represents a driver (network, logging, secrets).
+     */
+    public function getTemplating(): ?Driver
+    {
+        return $this->templating;
+    }
+
+    /**
+     * Driver represents a driver (network, logging, secrets).
+     */
+    public function setTemplating(?Driver $templating): self
+    {
+        $this->templating = $templating;
 
         return $this;
     }

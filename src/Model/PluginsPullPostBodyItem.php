@@ -25,19 +25,11 @@ class PluginsPullPostBodyItem
      */
     protected $value;
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -45,19 +37,11 @@ class PluginsPullPostBodyItem
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -66,7 +50,7 @@ class PluginsPullPostBodyItem
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getValue(): ?array
     {
@@ -74,9 +58,7 @@ class PluginsPullPostBodyItem
     }
 
     /**
-     * @param string[] $value
-     *
-     * @return self
+     * @param string[]|null $value
      */
     public function setValue(?array $value): self
     {

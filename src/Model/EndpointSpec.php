@@ -17,9 +17,9 @@ class EndpointSpec
      *
      * @var string
      */
-    protected $mode;
+    protected $mode = 'vip';
     /**
-     * List of exposed ports that this service is accessible on from the outside. Ports can only be provided if `vip` resolution mode is used.
+     * List of exposed ports that this service is accessible on from the.
      *
      * @var EndpointPortConfig[]
      */
@@ -27,8 +27,6 @@ class EndpointSpec
 
     /**
      * The mode of resolution to use for internal load balancing between tasks.
-     *
-     * @return string
      */
     public function getMode(): ?string
     {
@@ -37,10 +35,6 @@ class EndpointSpec
 
     /**
      * The mode of resolution to use for internal load balancing between tasks.
-     *
-     * @param string $mode
-     *
-     * @return self
      */
     public function setMode(?string $mode): self
     {
@@ -50,9 +44,9 @@ class EndpointSpec
     }
 
     /**
-     * List of exposed ports that this service is accessible on from the outside. Ports can only be provided if `vip` resolution mode is used.
+     * List of exposed ports that this service is accessible on from the.
      *
-     * @return EndpointPortConfig[]
+     * @return EndpointPortConfig[]|null
      */
     public function getPorts(): ?array
     {
@@ -60,11 +54,9 @@ class EndpointSpec
     }
 
     /**
-     * List of exposed ports that this service is accessible on from the outside. Ports can only be provided if `vip` resolution mode is used.
+     * List of exposed ports that this service is accessible on from the.
      *
-     * @param EndpointPortConfig[] $ports
-     *
-     * @return self
+     * @param EndpointPortConfig[]|null $ports
      */
     public function setPorts(?array $ports): self
     {

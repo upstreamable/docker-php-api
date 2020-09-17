@@ -13,23 +13,20 @@ namespace Docker\API\Endpoint;
 class PluginPull extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\AmpArtaxEndpoint, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Pulls and installs a plugin. After the plugin is installed, it can be enabled using the [`POST /plugins/{name}/enable` endpoint](#operation/PostPluginsEnable).
-
+     * Pulls and installs a plugin. After the plugin is installed, it can be.
      *
-     * @param array $body
      * @param array $queryParameters {
      *
-     *     @var string $remote remote reference for plugin to install
+     *     @var string $remote Remote reference for plugin to install.
 
-     *     @var string $name local name for the pulled plugin
-
-    The `:latest` tag is optional, and is used as the default if omitted.
+     *     @var string $name Local name for the pulled plugin.
 
      * }
      *
      * @param array $headerParameters {
      *
-     *     @var string $X-Registry-Auth A base64-encoded auth configuration to use when pulling a plugin from a registry. [See the authentication section for details.](#section/Authentication)
+     *     @var string $X-Registry-Auth A base64url-encoded auth configuration to use when pulling a plugin
+
      * }
      */
     public function __construct(array $body, array $queryParameters = [], array $headerParameters = [])
@@ -39,7 +36,8 @@ class PluginPull extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         $this->headerParameters = $headerParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -51,7 +49,7 @@ class PluginPull extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         return '/plugins/pull';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -88,8 +86,10 @@ class PluginPull extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * {@inheritdoc}
      *
      * @throws \Docker\API\Exception\PluginPullInternalServerErrorException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (204 === $status) {
             return null;

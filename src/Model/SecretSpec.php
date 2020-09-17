@@ -25,12 +25,7 @@ class SecretSpec
      */
     protected $labels;
     /**
-     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-3.2)).
-    data to store as secret.
-
-    This field is only used to _create_ a secret, and is not returned by
-    other endpoints.
-
+     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5)).
      *
      * @var string
      */
@@ -41,11 +36,15 @@ class SecretSpec
      * @var Driver
      */
     protected $driver;
+    /**
+     * Driver represents a driver (network, logging, secrets).
+     *
+     * @var Driver
+     */
+    protected $templating;
 
     /**
      * User-defined name of the secret.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -54,10 +53,6 @@ class SecretSpec
 
     /**
      * User-defined name of the secret.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -69,7 +64,7 @@ class SecretSpec
     /**
      * User-defined key/value metadata.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getLabels(): ?\ArrayObject
     {
@@ -79,9 +74,7 @@ class SecretSpec
     /**
      * User-defined key/value metadata.
      *
-     * @param string[] $labels
-     *
-     * @return self
+     * @param string[]|null $labels
      */
     public function setLabels(?\ArrayObject $labels): self
     {
@@ -91,14 +84,7 @@ class SecretSpec
     }
 
     /**
-     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-3.2)).
-    data to store as secret.
-
-    This field is only used to _create_ a secret, and is not returned by
-    other endpoints.
-
-     *
-     * @return string
+     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5)).
      */
     public function getData(): ?string
     {
@@ -106,16 +92,7 @@ class SecretSpec
     }
 
     /**
-     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-3.2)).
-    data to store as secret.
-
-    This field is only used to _create_ a secret, and is not returned by
-    other endpoints.
-
-     *
-     * @param string $data
-     *
-     * @return self
+     * Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5)).
      */
     public function setData(?string $data): self
     {
@@ -126,8 +103,6 @@ class SecretSpec
 
     /**
      * Driver represents a driver (network, logging, secrets).
-     *
-     * @return Driver
      */
     public function getDriver(): ?Driver
     {
@@ -136,14 +111,28 @@ class SecretSpec
 
     /**
      * Driver represents a driver (network, logging, secrets).
-     *
-     * @param Driver $driver
-     *
-     * @return self
      */
     public function setDriver(?Driver $driver): self
     {
         $this->driver = $driver;
+
+        return $this;
+    }
+
+    /**
+     * Driver represents a driver (network, logging, secrets).
+     */
+    public function getTemplating(): ?Driver
+    {
+        return $this->templating;
+    }
+
+    /**
+     * Driver represents a driver (network, logging, secrets).
+     */
+    public function setTemplating(?Driver $templating): self
+    {
+        $this->templating = $templating;
 
         return $this;
     }

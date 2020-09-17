@@ -15,7 +15,7 @@ class ExecResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected $id;
 
     /**
-     * Resize the TTY session used by an exec instance. This endpoint only works if `tty` was specified as part of creating and starting the exec instance.
+     * Resize the TTY session used by an exec instance. This endpoint only works.
      *
      * @param string $id              Exec instance ID
      * @param array  $queryParameters {
@@ -30,7 +30,8 @@ class ExecResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -42,7 +43,7 @@ class ExecResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         return str_replace(['{id}'], [$this->id], '/exec/{id}/resize');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -68,8 +69,10 @@ class ExecResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * {@inheritdoc}
      *
      * @throws \Docker\API\Exception\ExecResizeNotFoundException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (201 === $status) {
             return null;

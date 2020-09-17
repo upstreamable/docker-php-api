@@ -30,7 +30,7 @@ class PluginSettings
     protected $devices;
 
     /**
-     * @return PluginMount[]
+     * @return PluginMount[]|null
      */
     public function getMounts(): ?array
     {
@@ -38,9 +38,7 @@ class PluginSettings
     }
 
     /**
-     * @param PluginMount[] $mounts
-     *
-     * @return self
+     * @param PluginMount[]|null $mounts
      */
     public function setMounts(?array $mounts): self
     {
@@ -50,7 +48,7 @@ class PluginSettings
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getEnv(): ?array
     {
@@ -58,9 +56,7 @@ class PluginSettings
     }
 
     /**
-     * @param string[] $env
-     *
-     * @return self
+     * @param string[]|null $env
      */
     public function setEnv(?array $env): self
     {
@@ -70,7 +66,7 @@ class PluginSettings
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getArgs(): ?array
     {
@@ -78,9 +74,7 @@ class PluginSettings
     }
 
     /**
-     * @param string[] $args
-     *
-     * @return self
+     * @param string[]|null $args
      */
     public function setArgs(?array $args): self
     {
@@ -90,7 +84,7 @@ class PluginSettings
     }
 
     /**
-     * @return PluginDevice[]
+     * @return PluginDevice[]|null
      */
     public function getDevices(): ?array
     {
@@ -98,9 +92,7 @@ class PluginSettings
     }
 
     /**
-     * @param PluginDevice[] $devices
-     *
-     * @return self
+     * @param PluginDevice[]|null $devices
      */
     public function setDevices(?array $devices): self
     {

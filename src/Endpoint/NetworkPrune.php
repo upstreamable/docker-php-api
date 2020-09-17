@@ -15,11 +15,7 @@ class NetworkPrune extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * @param array $queryParameters {
      *
-     *     @var string $filters filters to process on the prune list, encoded as JSON (a `map[string][]string`)
-
-    Available filters:
-    - `until=<timestamp>` Prune networks created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
-    - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune networks with (or without, in case `label!=...` is used) the specified labels.
+     *     @var string $filters Filters to process on the prune list, encoded as JSON (a `map[string][]string`).
 
      * }
      */
@@ -28,7 +24,8 @@ class NetworkPrune extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -40,7 +37,7 @@ class NetworkPrune extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         return '/networks/prune';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -66,9 +63,9 @@ class NetworkPrune extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Docker\API\Exception\NetworkPruneInternalServerErrorException
      *
-     * @return null|\Docker\API\Model\NetworksPrunePostResponse200
+     * @return \Docker\API\Model\NetworksPrunePostResponse200|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\NetworksPrunePostResponse200', 'json');

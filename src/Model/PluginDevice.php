@@ -29,19 +29,11 @@ class PluginDevice
      */
     protected $path;
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -49,19 +41,11 @@ class PluginDevice
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -70,7 +54,7 @@ class PluginDevice
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getSettable(): ?array
     {
@@ -78,9 +62,7 @@ class PluginDevice
     }
 
     /**
-     * @param string[] $settable
-     *
-     * @return self
+     * @param string[]|null $settable
      */
     public function setSettable(?array $settable): self
     {
@@ -89,19 +71,11 @@ class PluginDevice
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getPath(): ?string
     {
         return $this->path;
     }
 
-    /**
-     * @param string $path
-     *
-     * @return self
-     */
     public function setPath(?string $path): self
     {
         $this->path = $path;

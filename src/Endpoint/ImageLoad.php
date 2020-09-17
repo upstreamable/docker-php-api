@@ -14,9 +14,6 @@ class ImageLoad extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 {
     /**
      * Load a set of images and tags into a repository.
-
-    For details on the format, see [the export image endpoint](#operation/ImageGet).
-
      *
      * @param string|resource|\Psr\Http\Message\StreamInterface $imagesTarball   Tar archive containing images
      * @param array                                             $queryParameters {
@@ -30,7 +27,8 @@ class ImageLoad extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -42,7 +40,7 @@ class ImageLoad extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         return '/images/load';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], $this->body];
     }
@@ -67,8 +65,10 @@ class ImageLoad extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * {@inheritdoc}
      *
      * @throws \Docker\API\Exception\ImageLoadInternalServerErrorException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return null;

@@ -39,8 +39,6 @@ class NodeSpec
 
     /**
      * Name for the node.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -49,10 +47,6 @@ class NodeSpec
 
     /**
      * Name for the node.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -64,7 +58,7 @@ class NodeSpec
     /**
      * User-defined key/value metadata.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getLabels(): ?\ArrayObject
     {
@@ -74,9 +68,7 @@ class NodeSpec
     /**
      * User-defined key/value metadata.
      *
-     * @param string[] $labels
-     *
-     * @return self
+     * @param string[]|null $labels
      */
     public function setLabels(?\ArrayObject $labels): self
     {
@@ -87,8 +79,6 @@ class NodeSpec
 
     /**
      * Role of the node.
-     *
-     * @return string
      */
     public function getRole(): ?string
     {
@@ -97,10 +87,6 @@ class NodeSpec
 
     /**
      * Role of the node.
-     *
-     * @param string $role
-     *
-     * @return self
      */
     public function setRole(?string $role): self
     {
@@ -111,8 +97,6 @@ class NodeSpec
 
     /**
      * Availability of the node.
-     *
-     * @return string
      */
     public function getAvailability(): ?string
     {
@@ -121,10 +105,6 @@ class NodeSpec
 
     /**
      * Availability of the node.
-     *
-     * @param string $availability
-     *
-     * @return self
      */
     public function setAvailability(?string $availability): self
     {

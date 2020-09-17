@@ -29,7 +29,7 @@ class ImageDeleteResponseItemNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ImageDeleteResponseItem;
+        return get_class($data) === 'Docker\\API\\Model\\ImageDeleteResponseItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -15,8 +15,7 @@ class NetworkDisconnect extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     protected $id;
 
     /**
-     * @param string                                         $id        Network ID or name
-     * @param \Docker\API\Model\NetworksIdDisconnectPostBody $container
+     * @param string $id Network ID or name
      */
     public function __construct(string $id, \Docker\API\Model\NetworksIdDisconnectPostBody $container)
     {
@@ -24,7 +23,8 @@ class NetworkDisconnect extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         $this->body = $container;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -36,7 +36,7 @@ class NetworkDisconnect extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         return str_replace(['{id}'], [$this->id], '/networks/{id}/disconnect');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -52,8 +52,10 @@ class NetworkDisconnect extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @throws \Docker\API\Exception\NetworkDisconnectForbiddenException
      * @throws \Docker\API\Exception\NetworkDisconnectNotFoundException
      * @throws \Docker\API\Exception\NetworkDisconnectInternalServerErrorException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return null;

@@ -29,7 +29,7 @@ class ConfigsCreatePostBodyNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ConfigsCreatePostBody;
+        return get_class($data) === 'Docker\\API\\Model\\ConfigsCreatePostBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -51,6 +51,9 @@ class ConfigsCreatePostBodyNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'Data') && $data->{'Data'} !== null) {
             $object->setData($data->{'Data'});
         }
+        if (property_exists($data, 'Templating') && $data->{'Templating'} !== null) {
+            $object->setTemplating($this->denormalizer->denormalize($data->{'Templating'}, 'Docker\\API\\Model\\Driver', 'json', $context));
+        }
 
         return $object;
     }
@@ -70,6 +73,9 @@ class ConfigsCreatePostBodyNormalizer implements DenormalizerInterface, Normaliz
         }
         if (null !== $object->getData()) {
             $data->{'Data'} = $object->getData();
+        }
+        if (null !== $object->getTemplating()) {
+            $data->{'Templating'} = $this->normalizer->normalize($object->getTemplating(), 'json', $context);
         }
 
         return $data;

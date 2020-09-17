@@ -29,7 +29,7 @@ class SwarmSpecTaskDefaultsLogDriverNormalizer implements DenormalizerInterface,
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\SwarmSpecTaskDefaultsLogDriver;
+        return get_class($data) === 'Docker\\API\\Model\\SwarmSpecTaskDefaultsLogDriver';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

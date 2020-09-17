@@ -29,7 +29,7 @@ class NetworksIdConnectPostBodyNormalizer implements DenormalizerInterface, Norm
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\NetworksIdConnectPostBody;
+        return get_class($data) === 'Docker\\API\\Model\\NetworksIdConnectPostBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -14,36 +14,30 @@ class HealthConfig
 {
     /**
      * The test to perform. Possible values are:.
-
-    - `[]` inherit healthcheck from image or parent image
-    - `["NONE"]` disable healthcheck
-    - `["CMD", args...]` exec arguments directly
-    - `["CMD-SHELL", command]` run command with system's default shell
-
      *
      * @var string[]
      */
     protected $test;
     /**
-     * The time to wait between checks in nanoseconds. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
+     * The time to wait between checks in nanoseconds. It should be 0 or at.
      *
      * @var int
      */
     protected $interval;
     /**
-     * The time to wait before considering the check to have hung. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
+     * The time to wait before considering the check to have hung. It should.
      *
      * @var int
      */
     protected $timeout;
     /**
-     * The number of consecutive failures needed to consider a container as unhealthy. 0 means inherit.
+     * The number of consecutive failures needed to consider a container as.
      *
      * @var int
      */
     protected $retries;
     /**
-     * Start period for the container to initialize before starting health-retries countdown in nanoseconds. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
+     * Start period for the container to initialize before starting.
      *
      * @var int
      */
@@ -51,14 +45,8 @@ class HealthConfig
 
     /**
      * The test to perform. Possible values are:.
-
-    - `[]` inherit healthcheck from image or parent image
-    - `["NONE"]` disable healthcheck
-    - `["CMD", args...]` exec arguments directly
-    - `["CMD-SHELL", command]` run command with system's default shell
-
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getTest(): ?array
     {
@@ -67,16 +55,8 @@ class HealthConfig
 
     /**
      * The test to perform. Possible values are:.
-
-    - `[]` inherit healthcheck from image or parent image
-    - `["NONE"]` disable healthcheck
-    - `["CMD", args...]` exec arguments directly
-    - `["CMD-SHELL", command]` run command with system's default shell
-
      *
-     * @param string[] $test
-     *
-     * @return self
+     * @param string[]|null $test
      */
     public function setTest(?array $test): self
     {
@@ -86,9 +66,7 @@ class HealthConfig
     }
 
     /**
-     * The time to wait between checks in nanoseconds. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
-     *
-     * @return int
+     * The time to wait between checks in nanoseconds. It should be 0 or at.
      */
     public function getInterval(): ?int
     {
@@ -96,11 +74,7 @@ class HealthConfig
     }
 
     /**
-     * The time to wait between checks in nanoseconds. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
-     *
-     * @param int $interval
-     *
-     * @return self
+     * The time to wait between checks in nanoseconds. It should be 0 or at.
      */
     public function setInterval(?int $interval): self
     {
@@ -110,9 +84,7 @@ class HealthConfig
     }
 
     /**
-     * The time to wait before considering the check to have hung. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
-     *
-     * @return int
+     * The time to wait before considering the check to have hung. It should.
      */
     public function getTimeout(): ?int
     {
@@ -120,11 +92,7 @@ class HealthConfig
     }
 
     /**
-     * The time to wait before considering the check to have hung. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
-     *
-     * @param int $timeout
-     *
-     * @return self
+     * The time to wait before considering the check to have hung. It should.
      */
     public function setTimeout(?int $timeout): self
     {
@@ -134,9 +102,7 @@ class HealthConfig
     }
 
     /**
-     * The number of consecutive failures needed to consider a container as unhealthy. 0 means inherit.
-     *
-     * @return int
+     * The number of consecutive failures needed to consider a container as.
      */
     public function getRetries(): ?int
     {
@@ -144,11 +110,7 @@ class HealthConfig
     }
 
     /**
-     * The number of consecutive failures needed to consider a container as unhealthy. 0 means inherit.
-     *
-     * @param int $retries
-     *
-     * @return self
+     * The number of consecutive failures needed to consider a container as.
      */
     public function setRetries(?int $retries): self
     {
@@ -158,9 +120,7 @@ class HealthConfig
     }
 
     /**
-     * Start period for the container to initialize before starting health-retries countdown in nanoseconds. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
-     *
-     * @return int
+     * Start period for the container to initialize before starting.
      */
     public function getStartPeriod(): ?int
     {
@@ -168,11 +128,7 @@ class HealthConfig
     }
 
     /**
-     * Start period for the container to initialize before starting health-retries countdown in nanoseconds. It should be 0 or at least 1000000 (1 ms). 0 means inherit.
-     *
-     * @param int $startPeriod
-     *
-     * @return self
+     * Start period for the container to initialize before starting.
      */
     public function setStartPeriod(?int $startPeriod): self
     {

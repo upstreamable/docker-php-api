@@ -29,7 +29,7 @@ class PlatformNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Platform;
+        return get_class($data) === 'Docker\\API\\Model\\Platform';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

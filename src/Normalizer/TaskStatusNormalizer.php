@@ -29,7 +29,7 @@ class TaskStatusNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TaskStatus;
+        return get_class($data) === 'Docker\\API\\Model\\TaskStatus';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,19 +29,11 @@ class DistributionNameJsonGetResponse200Descriptor
      */
     protected $uRLs;
 
-    /**
-     * @return string
-     */
     public function getMediaType(): ?string
     {
         return $this->mediaType;
     }
 
-    /**
-     * @param string $mediaType
-     *
-     * @return self
-     */
     public function setMediaType(?string $mediaType): self
     {
         $this->mediaType = $mediaType;
@@ -49,19 +41,11 @@ class DistributionNameJsonGetResponse200Descriptor
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getSize(): ?int
     {
         return $this->size;
     }
 
-    /**
-     * @param int $size
-     *
-     * @return self
-     */
     public function setSize(?int $size): self
     {
         $this->size = $size;
@@ -69,19 +53,11 @@ class DistributionNameJsonGetResponse200Descriptor
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDigest(): ?string
     {
         return $this->digest;
     }
 
-    /**
-     * @param string $digest
-     *
-     * @return self
-     */
     public function setDigest(?string $digest): self
     {
         $this->digest = $digest;
@@ -90,7 +66,7 @@ class DistributionNameJsonGetResponse200Descriptor
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getURLs(): ?array
     {
@@ -98,9 +74,7 @@ class DistributionNameJsonGetResponse200Descriptor
     }
 
     /**
-     * @param string[] $uRLs
-     *
-     * @return self
+     * @param string[]|null $uRLs
      */
     public function setURLs(?array $uRLs): self
     {

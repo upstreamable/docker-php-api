@@ -21,8 +21,6 @@ class ContainersIdWaitPostResponse200Error
 
     /**
      * Details of an error.
-     *
-     * @return string
      */
     public function getMessage(): ?string
     {
@@ -31,10 +29,6 @@ class ContainersIdWaitPostResponse200Error
 
     /**
      * Details of an error.
-     *
-     * @param string $message
-     *
-     * @return self
      */
     public function setMessage(?string $message): self
     {

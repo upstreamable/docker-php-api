@@ -29,7 +29,7 @@ class ServiceEndpointNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ServiceEndpoint;
+        return get_class($data) === 'Docker\\API\\Model\\ServiceEndpoint';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

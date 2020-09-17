@@ -39,8 +39,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * Name represents the final filename in the filesystem.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -49,10 +47,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * Name represents the final filename in the filesystem.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -63,8 +57,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * UID represents the file UID.
-     *
-     * @return string
      */
     public function getUID(): ?string
     {
@@ -73,10 +65,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * UID represents the file UID.
-     *
-     * @param string $uID
-     *
-     * @return self
      */
     public function setUID(?string $uID): self
     {
@@ -87,8 +75,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * GID represents the file GID.
-     *
-     * @return string
      */
     public function getGID(): ?string
     {
@@ -97,10 +83,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * GID represents the file GID.
-     *
-     * @param string $gID
-     *
-     * @return self
      */
     public function setGID(?string $gID): self
     {
@@ -111,8 +93,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * Mode represents the FileMode of the file.
-     *
-     * @return int
      */
     public function getMode(): ?int
     {
@@ -121,10 +101,6 @@ class TaskSpecContainerSpecConfigsItemFile
 
     /**
      * Mode represents the FileMode of the file.
-     *
-     * @param int $mode
-     *
-     * @return self
      */
     public function setMode(?int $mode): self
     {

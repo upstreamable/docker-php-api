@@ -41,19 +41,11 @@ class PluginMount
      */
     protected $options;
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -61,19 +53,11 @@ class PluginMount
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -82,7 +66,7 @@ class PluginMount
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getSettable(): ?array
     {
@@ -90,9 +74,7 @@ class PluginMount
     }
 
     /**
-     * @param string[] $settable
-     *
-     * @return self
+     * @param string[]|null $settable
      */
     public function setSettable(?array $settable): self
     {
@@ -101,19 +83,11 @@ class PluginMount
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getSource(): ?string
     {
         return $this->source;
     }
 
-    /**
-     * @param string $source
-     *
-     * @return self
-     */
     public function setSource(?string $source): self
     {
         $this->source = $source;
@@ -121,19 +95,11 @@ class PluginMount
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDestination(): ?string
     {
         return $this->destination;
     }
 
-    /**
-     * @param string $destination
-     *
-     * @return self
-     */
     public function setDestination(?string $destination): self
     {
         $this->destination = $destination;
@@ -141,19 +107,11 @@ class PluginMount
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -162,7 +120,7 @@ class PluginMount
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getOptions(): ?array
     {
@@ -170,9 +128,7 @@ class PluginMount
     }
 
     /**
-     * @param string[] $options
-     *
-     * @return self
+     * @param string[]|null $options
      */
     public function setOptions(?array $options): self
     {

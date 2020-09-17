@@ -15,12 +15,7 @@ class SecretList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * @param array $queryParameters {
      *
-     *     @var string $filters A JSON encoded value of the filters (a `map[string][]string`) to process on the secrets list. Available filters:
-
-    - `id=<secret id>`
-    - `label=<key> or label=<key>=value`
-    - `name=<secret name>`
-    - `names=<secret name>`
+     *     @var string $filters A JSON encoded value of the filters (a `map[string][]string`) to
 
      * }
      */
@@ -29,7 +24,8 @@ class SecretList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -41,7 +37,7 @@ class SecretList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         return '/secrets';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -68,9 +64,9 @@ class SecretList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Docker\API\Exception\SecretListInternalServerErrorException
      * @throws \Docker\API\Exception\SecretListServiceUnavailableException
      *
-     * @return null|\Docker\API\Model\Secret[]
+     * @return \Docker\API\Model\Secret[]|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\Secret[]', 'json');

@@ -45,8 +45,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * Disable SELinux.
-     *
-     * @return bool
      */
     public function getDisable(): ?bool
     {
@@ -55,10 +53,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * Disable SELinux.
-     *
-     * @param bool $disable
-     *
-     * @return self
      */
     public function setDisable(?bool $disable): self
     {
@@ -69,8 +63,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux user label.
-     *
-     * @return string
      */
     public function getUser(): ?string
     {
@@ -79,10 +71,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux user label.
-     *
-     * @param string $user
-     *
-     * @return self
      */
     public function setUser(?string $user): self
     {
@@ -93,8 +81,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux role label.
-     *
-     * @return string
      */
     public function getRole(): ?string
     {
@@ -103,10 +89,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux role label.
-     *
-     * @param string $role
-     *
-     * @return self
      */
     public function setRole(?string $role): self
     {
@@ -117,8 +99,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux type label.
-     *
-     * @return string
      */
     public function getType(): ?string
     {
@@ -127,10 +107,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux type label.
-     *
-     * @param string $type
-     *
-     * @return self
      */
     public function setType(?string $type): self
     {
@@ -141,8 +117,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux level label.
-     *
-     * @return string
      */
     public function getLevel(): ?string
     {
@@ -151,10 +125,6 @@ class TaskSpecContainerSpecPrivilegesSELinuxContext
 
     /**
      * SELinux level label.
-     *
-     * @param string $level
-     *
-     * @return self
      */
     public function setLevel(?string $level): self
     {

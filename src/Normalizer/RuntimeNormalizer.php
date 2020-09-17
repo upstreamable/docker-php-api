@@ -29,7 +29,7 @@ class RuntimeNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Runtime;
+        return get_class($data) === 'Docker\\API\\Model\\Runtime';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

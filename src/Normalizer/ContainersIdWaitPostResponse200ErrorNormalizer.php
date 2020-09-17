@@ -29,7 +29,7 @@ class ContainersIdWaitPostResponse200ErrorNormalizer implements DenormalizerInte
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ContainersIdWaitPostResponse200Error;
+        return get_class($data) === 'Docker\\API\\Model\\ContainersIdWaitPostResponse200Error';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

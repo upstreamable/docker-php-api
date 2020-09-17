@@ -15,10 +15,9 @@ class ExecStart extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     protected $id;
 
     /**
-     * Starts a previously set up exec instance. If detach is true, this endpoint returns immediately after starting the command. Otherwise, it sets up an interactive session with the command.
+     * Starts a previously set up exec instance. If detach is true, this endpoint.
      *
-     * @param string                                $id              Exec instance ID
-     * @param \Docker\API\Model\ExecIdStartPostBody $execStartConfig
+     * @param string $id Exec instance ID
      */
     public function __construct(string $id, \Docker\API\Model\ExecIdStartPostBody $execStartConfig)
     {
@@ -26,7 +25,8 @@ class ExecStart extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         $this->body = $execStartConfig;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -38,7 +38,7 @@ class ExecStart extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         return str_replace(['{id}'], [$this->id], '/exec/{id}/start');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -53,8 +53,10 @@ class ExecStart extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Docker\API\Exception\ExecStartNotFoundException
      * @throws \Docker\API\Exception\ExecStartConflictException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return null;

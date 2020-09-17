@@ -27,8 +27,6 @@ class Driver
 
     /**
      * Name of the driver.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -37,10 +35,6 @@ class Driver
 
     /**
      * Name of the driver.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -52,7 +46,7 @@ class Driver
     /**
      * Key/value map of driver-specific options.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getOptions(): ?\ArrayObject
     {
@@ -62,9 +56,7 @@ class Driver
     /**
      * Key/value map of driver-specific options.
      *
-     * @param string[] $options
-     *
-     * @return self
+     * @param string[]|null $options
      */
     public function setOptions(?\ArrayObject $options): self
     {

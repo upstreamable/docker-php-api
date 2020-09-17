@@ -29,7 +29,7 @@ class RestartPolicyNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\RestartPolicy;
+        return get_class($data) === 'Docker\\API\\Model\\RestartPolicy';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

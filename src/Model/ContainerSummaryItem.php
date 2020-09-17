@@ -101,8 +101,6 @@ class ContainerSummaryItem
 
     /**
      * The ID of this container.
-     *
-     * @return string
      */
     public function getId(): ?string
     {
@@ -111,10 +109,6 @@ class ContainerSummaryItem
 
     /**
      * The ID of this container.
-     *
-     * @param string $id
-     *
-     * @return self
      */
     public function setId(?string $id): self
     {
@@ -126,7 +120,7 @@ class ContainerSummaryItem
     /**
      * The names that this container has been given.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getNames(): ?array
     {
@@ -136,9 +130,7 @@ class ContainerSummaryItem
     /**
      * The names that this container has been given.
      *
-     * @param string[] $names
-     *
-     * @return self
+     * @param string[]|null $names
      */
     public function setNames(?array $names): self
     {
@@ -149,8 +141,6 @@ class ContainerSummaryItem
 
     /**
      * The name of the image used when creating this container.
-     *
-     * @return string
      */
     public function getImage(): ?string
     {
@@ -159,10 +149,6 @@ class ContainerSummaryItem
 
     /**
      * The name of the image used when creating this container.
-     *
-     * @param string $image
-     *
-     * @return self
      */
     public function setImage(?string $image): self
     {
@@ -173,8 +159,6 @@ class ContainerSummaryItem
 
     /**
      * The ID of the image that this container was created from.
-     *
-     * @return string
      */
     public function getImageID(): ?string
     {
@@ -183,10 +167,6 @@ class ContainerSummaryItem
 
     /**
      * The ID of the image that this container was created from.
-     *
-     * @param string $imageID
-     *
-     * @return self
      */
     public function setImageID(?string $imageID): self
     {
@@ -197,8 +177,6 @@ class ContainerSummaryItem
 
     /**
      * Command to run when starting the container.
-     *
-     * @return string
      */
     public function getCommand(): ?string
     {
@@ -207,10 +185,6 @@ class ContainerSummaryItem
 
     /**
      * Command to run when starting the container.
-     *
-     * @param string $command
-     *
-     * @return self
      */
     public function setCommand(?string $command): self
     {
@@ -221,8 +195,6 @@ class ContainerSummaryItem
 
     /**
      * When the container was created.
-     *
-     * @return int
      */
     public function getCreated(): ?int
     {
@@ -231,10 +203,6 @@ class ContainerSummaryItem
 
     /**
      * When the container was created.
-     *
-     * @param int $created
-     *
-     * @return self
      */
     public function setCreated(?int $created): self
     {
@@ -246,7 +214,7 @@ class ContainerSummaryItem
     /**
      * The ports exposed by this container.
      *
-     * @return Port[]
+     * @return Port[]|null
      */
     public function getPorts(): ?array
     {
@@ -256,9 +224,7 @@ class ContainerSummaryItem
     /**
      * The ports exposed by this container.
      *
-     * @param Port[] $ports
-     *
-     * @return self
+     * @param Port[]|null $ports
      */
     public function setPorts(?array $ports): self
     {
@@ -269,8 +235,6 @@ class ContainerSummaryItem
 
     /**
      * The size of files that have been created or changed by this container.
-     *
-     * @return int
      */
     public function getSizeRw(): ?int
     {
@@ -279,10 +243,6 @@ class ContainerSummaryItem
 
     /**
      * The size of files that have been created or changed by this container.
-     *
-     * @param int $sizeRw
-     *
-     * @return self
      */
     public function setSizeRw(?int $sizeRw): self
     {
@@ -293,8 +253,6 @@ class ContainerSummaryItem
 
     /**
      * The total size of all the files in this container.
-     *
-     * @return int
      */
     public function getSizeRootFs(): ?int
     {
@@ -303,10 +261,6 @@ class ContainerSummaryItem
 
     /**
      * The total size of all the files in this container.
-     *
-     * @param int $sizeRootFs
-     *
-     * @return self
      */
     public function setSizeRootFs(?int $sizeRootFs): self
     {
@@ -318,7 +272,7 @@ class ContainerSummaryItem
     /**
      * User-defined key/value metadata.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getLabels(): ?\ArrayObject
     {
@@ -328,9 +282,7 @@ class ContainerSummaryItem
     /**
      * User-defined key/value metadata.
      *
-     * @param string[] $labels
-     *
-     * @return self
+     * @param string[]|null $labels
      */
     public function setLabels(?\ArrayObject $labels): self
     {
@@ -341,8 +293,6 @@ class ContainerSummaryItem
 
     /**
      * The state of this container (e.g. `Exited`).
-     *
-     * @return string
      */
     public function getState(): ?string
     {
@@ -351,10 +301,6 @@ class ContainerSummaryItem
 
     /**
      * The state of this container (e.g. `Exited`).
-     *
-     * @param string $state
-     *
-     * @return self
      */
     public function setState(?string $state): self
     {
@@ -365,8 +311,6 @@ class ContainerSummaryItem
 
     /**
      * Additional human-readable status of this container (e.g. `Exit 0`).
-     *
-     * @return string
      */
     public function getStatus(): ?string
     {
@@ -375,10 +319,6 @@ class ContainerSummaryItem
 
     /**
      * Additional human-readable status of this container (e.g. `Exit 0`).
-     *
-     * @param string $status
-     *
-     * @return self
      */
     public function setStatus(?string $status): self
     {
@@ -387,19 +327,11 @@ class ContainerSummaryItem
         return $this;
     }
 
-    /**
-     * @return ContainerSummaryItemHostConfig
-     */
     public function getHostConfig(): ?ContainerSummaryItemHostConfig
     {
         return $this->hostConfig;
     }
 
-    /**
-     * @param ContainerSummaryItemHostConfig $hostConfig
-     *
-     * @return self
-     */
     public function setHostConfig(?ContainerSummaryItemHostConfig $hostConfig): self
     {
         $this->hostConfig = $hostConfig;
@@ -409,8 +341,6 @@ class ContainerSummaryItem
 
     /**
      * A summary of the container's network settings.
-     *
-     * @return ContainerSummaryItemNetworkSettings
      */
     public function getNetworkSettings(): ?ContainerSummaryItemNetworkSettings
     {
@@ -419,10 +349,6 @@ class ContainerSummaryItem
 
     /**
      * A summary of the container's network settings.
-     *
-     * @param ContainerSummaryItemNetworkSettings $networkSettings
-     *
-     * @return self
      */
     public function setNetworkSettings(?ContainerSummaryItemNetworkSettings $networkSettings): self
     {
@@ -432,7 +358,7 @@ class ContainerSummaryItem
     }
 
     /**
-     * @return Mount[]
+     * @return Mount[]|null
      */
     public function getMounts(): ?array
     {
@@ -440,9 +366,7 @@ class ContainerSummaryItem
     }
 
     /**
-     * @param Mount[] $mounts
-     *
-     * @return self
+     * @param Mount[]|null $mounts
      */
     public function setMounts(?array $mounts): self
     {

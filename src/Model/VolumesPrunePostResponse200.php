@@ -28,7 +28,7 @@ class VolumesPrunePostResponse200
     /**
      * Volumes that were deleted.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getVolumesDeleted(): ?array
     {
@@ -38,9 +38,7 @@ class VolumesPrunePostResponse200
     /**
      * Volumes that were deleted.
      *
-     * @param string[] $volumesDeleted
-     *
-     * @return self
+     * @param string[]|null $volumesDeleted
      */
     public function setVolumesDeleted(?array $volumesDeleted): self
     {
@@ -51,8 +49,6 @@ class VolumesPrunePostResponse200
 
     /**
      * Disk space reclaimed in bytes.
-     *
-     * @return int
      */
     public function getSpaceReclaimed(): ?int
     {
@@ -61,10 +57,6 @@ class VolumesPrunePostResponse200
 
     /**
      * Disk space reclaimed in bytes.
-     *
-     * @param int $spaceReclaimed
-     *
-     * @return self
      */
     public function setSpaceReclaimed(?int $spaceReclaimed): self
     {

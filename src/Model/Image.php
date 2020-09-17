@@ -95,19 +95,11 @@ class Image
      */
     protected $metadata;
 
-    /**
-     * @return string
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -116,7 +108,7 @@ class Image
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getRepoTags(): ?array
     {
@@ -124,9 +116,7 @@ class Image
     }
 
     /**
-     * @param string[] $repoTags
-     *
-     * @return self
+     * @param string[]|null $repoTags
      */
     public function setRepoTags(?array $repoTags): self
     {
@@ -136,7 +126,7 @@ class Image
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getRepoDigests(): ?array
     {
@@ -144,9 +134,7 @@ class Image
     }
 
     /**
-     * @param string[] $repoDigests
-     *
-     * @return self
+     * @param string[]|null $repoDigests
      */
     public function setRepoDigests(?array $repoDigests): self
     {
@@ -155,19 +143,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getParent(): ?string
     {
         return $this->parent;
     }
 
-    /**
-     * @param string $parent
-     *
-     * @return self
-     */
     public function setParent(?string $parent): self
     {
         $this->parent = $parent;
@@ -175,19 +155,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getComment(): ?string
     {
         return $this->comment;
     }
 
-    /**
-     * @param string $comment
-     *
-     * @return self
-     */
     public function setComment(?string $comment): self
     {
         $this->comment = $comment;
@@ -195,19 +167,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getCreated(): ?string
     {
         return $this->created;
     }
 
-    /**
-     * @param string $created
-     *
-     * @return self
-     */
     public function setCreated(?string $created): self
     {
         $this->created = $created;
@@ -215,19 +179,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getContainer(): ?string
     {
         return $this->container;
     }
 
-    /**
-     * @param string $container
-     *
-     * @return self
-     */
     public function setContainer(?string $container): self
     {
         $this->container = $container;
@@ -237,8 +193,6 @@ class Image
 
     /**
      * Configuration for a container that is portable between hosts.
-     *
-     * @return ContainerConfig
      */
     public function getContainerConfig(): ?ContainerConfig
     {
@@ -247,10 +201,6 @@ class Image
 
     /**
      * Configuration for a container that is portable between hosts.
-     *
-     * @param ContainerConfig $containerConfig
-     *
-     * @return self
      */
     public function setContainerConfig(?ContainerConfig $containerConfig): self
     {
@@ -259,19 +209,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDockerVersion(): ?string
     {
         return $this->dockerVersion;
     }
 
-    /**
-     * @param string $dockerVersion
-     *
-     * @return self
-     */
     public function setDockerVersion(?string $dockerVersion): self
     {
         $this->dockerVersion = $dockerVersion;
@@ -279,19 +221,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    /**
-     * @param string $author
-     *
-     * @return self
-     */
     public function setAuthor(?string $author): self
     {
         $this->author = $author;
@@ -301,8 +235,6 @@ class Image
 
     /**
      * Configuration for a container that is portable between hosts.
-     *
-     * @return ContainerConfig
      */
     public function getConfig(): ?ContainerConfig
     {
@@ -311,10 +243,6 @@ class Image
 
     /**
      * Configuration for a container that is portable between hosts.
-     *
-     * @param ContainerConfig $config
-     *
-     * @return self
      */
     public function setConfig(?ContainerConfig $config): self
     {
@@ -323,19 +251,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getArchitecture(): ?string
     {
         return $this->architecture;
     }
 
-    /**
-     * @param string $architecture
-     *
-     * @return self
-     */
     public function setArchitecture(?string $architecture): self
     {
         $this->architecture = $architecture;
@@ -343,19 +263,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getOs(): ?string
     {
         return $this->os;
     }
 
-    /**
-     * @param string $os
-     *
-     * @return self
-     */
     public function setOs(?string $os): self
     {
         $this->os = $os;
@@ -363,19 +275,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getOsVersion(): ?string
     {
         return $this->osVersion;
     }
 
-    /**
-     * @param string $osVersion
-     *
-     * @return self
-     */
     public function setOsVersion(?string $osVersion): self
     {
         $this->osVersion = $osVersion;
@@ -383,19 +287,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getSize(): ?int
     {
         return $this->size;
     }
 
-    /**
-     * @param int $size
-     *
-     * @return self
-     */
     public function setSize(?int $size): self
     {
         $this->size = $size;
@@ -403,19 +299,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getVirtualSize(): ?int
     {
         return $this->virtualSize;
     }
 
-    /**
-     * @param int $virtualSize
-     *
-     * @return self
-     */
     public function setVirtualSize(?int $virtualSize): self
     {
         $this->virtualSize = $virtualSize;
@@ -425,8 +313,6 @@ class Image
 
     /**
      * Information about a container's graph driver.
-     *
-     * @return GraphDriverData
      */
     public function getGraphDriver(): ?GraphDriverData
     {
@@ -435,10 +321,6 @@ class Image
 
     /**
      * Information about a container's graph driver.
-     *
-     * @param GraphDriverData $graphDriver
-     *
-     * @return self
      */
     public function setGraphDriver(?GraphDriverData $graphDriver): self
     {
@@ -447,19 +329,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return ImageRootFS
-     */
     public function getRootFS(): ?ImageRootFS
     {
         return $this->rootFS;
     }
 
-    /**
-     * @param ImageRootFS $rootFS
-     *
-     * @return self
-     */
     public function setRootFS(?ImageRootFS $rootFS): self
     {
         $this->rootFS = $rootFS;
@@ -467,19 +341,11 @@ class Image
         return $this;
     }
 
-    /**
-     * @return ImageMetadata
-     */
     public function getMetadata(): ?ImageMetadata
     {
         return $this->metadata;
     }
 
-    /**
-     * @param ImageMetadata $metadata
-     *
-     * @return self
-     */
     public function setMetadata(?ImageMetadata $metadata): self
     {
         $this->metadata = $metadata;

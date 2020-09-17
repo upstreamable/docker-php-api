@@ -29,7 +29,7 @@ class TaskSpecContainerSpecSecretsItemNormalizer implements DenormalizerInterfac
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TaskSpecContainerSpecSecretsItem;
+        return get_class($data) === 'Docker\\API\\Model\\TaskSpecContainerSpecSecretsItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

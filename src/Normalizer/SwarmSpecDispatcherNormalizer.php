@@ -29,7 +29,7 @@ class SwarmSpecDispatcherNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\SwarmSpecDispatcher;
+        return get_class($data) === 'Docker\\API\\Model\\SwarmSpecDispatcher';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

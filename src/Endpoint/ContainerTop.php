@@ -15,7 +15,7 @@ class ContainerTop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     protected $id;
 
     /**
-     * On Unix systems, this is done by running the `ps` command. This endpoint is not supported on Windows.
+     * On Unix systems, this is done by running the `ps` command. This endpoint.
      *
      * @param string $id              ID or name of the container
      * @param array  $queryParameters {
@@ -29,7 +29,8 @@ class ContainerTop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -41,7 +42,7 @@ class ContainerTop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         return str_replace(['{id}'], [$this->id], '/containers/{id}/top');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -68,9 +69,9 @@ class ContainerTop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Docker\API\Exception\ContainerTopNotFoundException
      * @throws \Docker\API\Exception\ContainerTopInternalServerErrorException
      *
-     * @return null|\Docker\API\Model\ContainersIdTopGetResponse200
+     * @return \Docker\API\Model\ContainersIdTopGetResponse200|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\ContainersIdTopGetResponse200', 'json');

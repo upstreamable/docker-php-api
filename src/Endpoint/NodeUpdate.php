@@ -15,11 +15,11 @@ class NodeUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected $id;
 
     /**
-     * @param string                     $id              The ID of the node
-     * @param \Docker\API\Model\NodeSpec $body
-     * @param array                      $queryParameters {
+     * @param string $id              The ID of the node
+     * @param array  $queryParameters {
      *
-     *     @var int $version The version number of the node object being updated. This is required to avoid conflicting writes.
+     *     @var int $version The version number of the node object being updated. This is required
+
      * }
      */
     public function __construct(string $id, \Docker\API\Model\NodeSpec $body, array $queryParameters = [])
@@ -29,7 +29,8 @@ class NodeUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -41,7 +42,7 @@ class NodeUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         return str_replace(['{id}'], [$this->id], '/nodes/{id}/update');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -69,8 +70,10 @@ class NodeUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Docker\API\Exception\NodeUpdateNotFoundException
      * @throws \Docker\API\Exception\NodeUpdateInternalServerErrorException
      * @throws \Docker\API\Exception\NodeUpdateServiceUnavailableException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return null;

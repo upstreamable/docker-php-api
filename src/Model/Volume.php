@@ -38,12 +38,6 @@ class Volume
     protected $createdAt;
     /**
      * Low-level details about the volume, provided by the volume driver.
-    Details are returned as a map with key/value pairs:
-    `{"key":"value","key2":"value2"}`.
-
-    The `Status` field is optional, and is omitted if the volume driver
-    does not support this feature.
-
      *
      * @var mixed[]
      */
@@ -55,11 +49,11 @@ class Volume
      */
     protected $labels;
     /**
-     * The level at which the volume exists. Either `global` for cluster-wide, or `local` for machine level.
+     * The level at which the volume exists. Either `global` for cluster-wide,.
      *
      * @var string
      */
-    protected $scope;
+    protected $scope = 'local';
     /**
      * The driver specific options used when creating the volume.
      *
@@ -68,8 +62,6 @@ class Volume
     protected $options;
     /**
      * Usage details about the volume. This information is used by the.
-    `GET /system/df` endpoint, and omitted in other endpoints.
-
      *
      * @var VolumeUsageData
      */
@@ -77,8 +69,6 @@ class Volume
 
     /**
      * Name of the volume.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -87,10 +77,6 @@ class Volume
 
     /**
      * Name of the volume.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -101,8 +87,6 @@ class Volume
 
     /**
      * Name of the volume driver used by the volume.
-     *
-     * @return string
      */
     public function getDriver(): ?string
     {
@@ -111,10 +95,6 @@ class Volume
 
     /**
      * Name of the volume driver used by the volume.
-     *
-     * @param string $driver
-     *
-     * @return self
      */
     public function setDriver(?string $driver): self
     {
@@ -125,8 +105,6 @@ class Volume
 
     /**
      * Mount path of the volume on the host.
-     *
-     * @return string
      */
     public function getMountpoint(): ?string
     {
@@ -135,10 +113,6 @@ class Volume
 
     /**
      * Mount path of the volume on the host.
-     *
-     * @param string $mountpoint
-     *
-     * @return self
      */
     public function setMountpoint(?string $mountpoint): self
     {
@@ -149,8 +123,6 @@ class Volume
 
     /**
      * Date/Time the volume was created.
-     *
-     * @return string
      */
     public function getCreatedAt(): ?string
     {
@@ -159,10 +131,6 @@ class Volume
 
     /**
      * Date/Time the volume was created.
-     *
-     * @param string $createdAt
-     *
-     * @return self
      */
     public function setCreatedAt(?string $createdAt): self
     {
@@ -173,14 +141,8 @@ class Volume
 
     /**
      * Low-level details about the volume, provided by the volume driver.
-    Details are returned as a map with key/value pairs:
-    `{"key":"value","key2":"value2"}`.
-
-    The `Status` field is optional, and is omitted if the volume driver
-    does not support this feature.
-
      *
-     * @return mixed[]
+     * @return mixed[]|null
      */
     public function getStatus(): ?\ArrayObject
     {
@@ -189,16 +151,8 @@ class Volume
 
     /**
      * Low-level details about the volume, provided by the volume driver.
-    Details are returned as a map with key/value pairs:
-    `{"key":"value","key2":"value2"}`.
-
-    The `Status` field is optional, and is omitted if the volume driver
-    does not support this feature.
-
      *
-     * @param mixed[] $status
-     *
-     * @return self
+     * @param mixed[]|null $status
      */
     public function setStatus(?\ArrayObject $status): self
     {
@@ -210,7 +164,7 @@ class Volume
     /**
      * User-defined key/value metadata.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getLabels(): ?\ArrayObject
     {
@@ -220,9 +174,7 @@ class Volume
     /**
      * User-defined key/value metadata.
      *
-     * @param string[] $labels
-     *
-     * @return self
+     * @param string[]|null $labels
      */
     public function setLabels(?\ArrayObject $labels): self
     {
@@ -232,9 +184,7 @@ class Volume
     }
 
     /**
-     * The level at which the volume exists. Either `global` for cluster-wide, or `local` for machine level.
-     *
-     * @return string
+     * The level at which the volume exists. Either `global` for cluster-wide,.
      */
     public function getScope(): ?string
     {
@@ -242,11 +192,7 @@ class Volume
     }
 
     /**
-     * The level at which the volume exists. Either `global` for cluster-wide, or `local` for machine level.
-     *
-     * @param string $scope
-     *
-     * @return self
+     * The level at which the volume exists. Either `global` for cluster-wide,.
      */
     public function setScope(?string $scope): self
     {
@@ -258,7 +204,7 @@ class Volume
     /**
      * The driver specific options used when creating the volume.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getOptions(): ?\ArrayObject
     {
@@ -268,9 +214,7 @@ class Volume
     /**
      * The driver specific options used when creating the volume.
      *
-     * @param string[] $options
-     *
-     * @return self
+     * @param string[]|null $options
      */
     public function setOptions(?\ArrayObject $options): self
     {
@@ -281,10 +225,6 @@ class Volume
 
     /**
      * Usage details about the volume. This information is used by the.
-    `GET /system/df` endpoint, and omitted in other endpoints.
-
-     *
-     * @return VolumeUsageData
      */
     public function getUsageData(): ?VolumeUsageData
     {
@@ -293,12 +233,6 @@ class Volume
 
     /**
      * Usage details about the volume. This information is used by the.
-    `GET /system/df` endpoint, and omitted in other endpoints.
-
-     *
-     * @param VolumeUsageData $usageData
-     *
-     * @return self
      */
     public function setUsageData(?VolumeUsageData $usageData): self
     {

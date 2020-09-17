@@ -29,7 +29,7 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TaskSpec;
+        return get_class($data) === 'Docker\\API\\Model\\TaskSpec';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -43,6 +43,9 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (property_exists($data, 'ContainerSpec') && $data->{'ContainerSpec'} !== null) {
             $object->setContainerSpec($this->denormalizer->denormalize($data->{'ContainerSpec'}, 'Docker\\API\\Model\\TaskSpecContainerSpec', 'json', $context));
+        }
+        if (property_exists($data, 'NetworkAttachmentSpec') && $data->{'NetworkAttachmentSpec'} !== null) {
+            $object->setNetworkAttachmentSpec($this->denormalizer->denormalize($data->{'NetworkAttachmentSpec'}, 'Docker\\API\\Model\\TaskSpecNetworkAttachmentSpec', 'json', $context));
         }
         if (property_exists($data, 'Resources') && $data->{'Resources'} !== null) {
             $object->setResources($this->denormalizer->denormalize($data->{'Resources'}, 'Docker\\API\\Model\\TaskSpecResources', 'json', $context));
@@ -62,7 +65,7 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'Networks') && $data->{'Networks'} !== null) {
             $values = [];
             foreach ($data->{'Networks'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Docker\\API\\Model\\TaskSpecNetworksItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Docker\\API\\Model\\NetworkAttachmentConfig', 'json', $context);
             }
             $object->setNetworks($values);
         }
@@ -81,6 +84,9 @@ class TaskSpecNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getContainerSpec()) {
             $data->{'ContainerSpec'} = $this->normalizer->normalize($object->getContainerSpec(), 'json', $context);
+        }
+        if (null !== $object->getNetworkAttachmentSpec()) {
+            $data->{'NetworkAttachmentSpec'} = $this->normalizer->normalize($object->getNetworkAttachmentSpec(), 'json', $context);
         }
         if (null !== $object->getResources()) {
             $data->{'Resources'} = $this->normalizer->normalize($object->getResources(), 'json', $context);

@@ -15,12 +15,7 @@ class ServiceList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * @param array $queryParameters {
      *
-     *     @var string $filters A JSON encoded value of the filters (a `map[string][]string`) to process on the services list. Available filters:
-
-    - `id=<service id>`
-    - `label=<service label>`
-    - `mode=["replicated"|"global"]`
-    - `name=<service name>`
+     *     @var string $filters A JSON encoded value of the filters (a `map[string][]string`) to
 
      * }
      */
@@ -29,7 +24,8 @@ class ServiceList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -41,7 +37,7 @@ class ServiceList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         return '/services';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -68,9 +64,9 @@ class ServiceList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Docker\API\Exception\ServiceListInternalServerErrorException
      * @throws \Docker\API\Exception\ServiceListServiceUnavailableException
      *
-     * @return null|\Docker\API\Model\Service[]
+     * @return \Docker\API\Model\Service[]|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\Service[]', 'json');

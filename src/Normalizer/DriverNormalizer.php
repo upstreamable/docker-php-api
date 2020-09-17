@@ -29,7 +29,7 @@ class DriverNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Driver;
+        return get_class($data) === 'Docker\\API\\Model\\Driver';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,7 +29,7 @@ class TaskSpecPlacementNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TaskSpecPlacement;
+        return get_class($data) === 'Docker\\API\\Model\\TaskSpecPlacement';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -51,6 +51,9 @@ class TaskSpecPlacementNormalizer implements DenormalizerInterface, NormalizerIn
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Docker\\API\\Model\\TaskSpecPlacementPreferencesItem', 'json', $context);
             }
             $object->setPreferences($values_1);
+        }
+        if (property_exists($data, 'MaxReplicas') && $data->{'MaxReplicas'} !== null) {
+            $object->setMaxReplicas($data->{'MaxReplicas'});
         }
         if (property_exists($data, 'Platforms') && $data->{'Platforms'} !== null) {
             $values_2 = [];
@@ -79,6 +82,9 @@ class TaskSpecPlacementNormalizer implements DenormalizerInterface, NormalizerIn
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'Preferences'} = $values_1;
+        }
+        if (null !== $object->getMaxReplicas()) {
+            $data->{'MaxReplicas'} = $object->getMaxReplicas();
         }
         if (null !== $object->getPlatforms()) {
             $values_2 = [];

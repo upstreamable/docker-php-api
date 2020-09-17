@@ -17,19 +17,11 @@ class ObjectVersion
      */
     protected $index;
 
-    /**
-     * @return int
-     */
     public function getIndex(): ?int
     {
         return $this->index;
     }
 
-    /**
-     * @param int $index
-     *
-     * @return self
-     */
     public function setIndex(?int $index): self
     {
         $this->index = $index;

@@ -29,7 +29,7 @@ class EngineDescriptionPluginsItemNormalizer implements DenormalizerInterface, N
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\EngineDescriptionPluginsItem;
+        return get_class($data) === 'Docker\\API\\Model\\EngineDescriptionPluginsItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

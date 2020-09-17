@@ -29,7 +29,7 @@ class EventsGetResponse200Normalizer implements DenormalizerInterface, Normalize
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\EventsGetResponse200;
+        return get_class($data) === 'Docker\\API\\Model\\EventsGetResponse200';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

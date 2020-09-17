@@ -15,19 +15,17 @@ class PluginUpgrade extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected $name;
 
     /**
-     * @param string $name            The name of the plugin. The `:latest` tag is optional, and is the default if omitted.
-     * @param array  $body
+     * @param string $name            The name of the plugin. The `:latest` tag is optional, and is the
      * @param array  $queryParameters {
      *
-     *     @var string $remote remote reference to upgrade to
-
-    The `:latest` tag is optional, and is used as the default if omitted.
+     *     @var string $remote Remote reference to upgrade to.
 
      * }
      *
      * @param array $headerParameters {
      *
-     *     @var string $X-Registry-Auth A base64-encoded auth configuration to use when pulling a plugin from a registry. [See the authentication section for details.](#section/Authentication)
+     *     @var string $X-Registry-Auth A base64url-encoded auth configuration to use when pulling a plugin
+
      * }
      */
     public function __construct(string $name, array $body, array $queryParameters = [], array $headerParameters = [])
@@ -38,7 +36,8 @@ class PluginUpgrade extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         $this->headerParameters = $headerParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -50,7 +49,7 @@ class PluginUpgrade extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         return str_replace(['{name}'], [$this->name], '/plugins/{name}/upgrade');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -87,8 +86,10 @@ class PluginUpgrade extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Docker\API\Exception\PluginUpgradeNotFoundException
      * @throws \Docker\API\Exception\PluginUpgradeInternalServerErrorException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (204 === $status) {
             return null;

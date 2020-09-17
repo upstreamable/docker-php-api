@@ -29,7 +29,7 @@ class SecretNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Secret;
+        return get_class($data) === 'Docker\\API\\Model\\Secret';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

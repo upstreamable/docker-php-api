@@ -21,19 +21,11 @@ class TaskSpecLogDriver
      */
     protected $options;
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -42,7 +34,7 @@ class TaskSpecLogDriver
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getOptions(): ?\ArrayObject
     {
@@ -50,9 +42,7 @@ class TaskSpecLogDriver
     }
 
     /**
-     * @param string[] $options
-     *
-     * @return self
+     * @param string[]|null $options
      */
     public function setOptions(?\ArrayObject $options): self
     {

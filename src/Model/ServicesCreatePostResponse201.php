@@ -27,8 +27,6 @@ class ServicesCreatePostResponse201
 
     /**
      * The ID of the created service.
-     *
-     * @return string
      */
     public function getID(): ?string
     {
@@ -37,10 +35,6 @@ class ServicesCreatePostResponse201
 
     /**
      * The ID of the created service.
-     *
-     * @param string $iD
-     *
-     * @return self
      */
     public function setID(?string $iD): self
     {
@@ -51,8 +45,6 @@ class ServicesCreatePostResponse201
 
     /**
      * Optional warning message.
-     *
-     * @return string
      */
     public function getWarning(): ?string
     {
@@ -61,10 +53,6 @@ class ServicesCreatePostResponse201
 
     /**
      * Optional warning message.
-     *
-     * @param string $warning
-     *
-     * @return self
      */
     public function setWarning(?string $warning): self
     {

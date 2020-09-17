@@ -21,8 +21,6 @@ class ErrorResponse
 
     /**
      * The error message.
-     *
-     * @return string
      */
     public function getMessage(): ?string
     {
@@ -31,10 +29,6 @@ class ErrorResponse
 
     /**
      * The error message.
-     *
-     * @param string $message
-     *
-     * @return self
      */
     public function setMessage(?string $message): self
     {

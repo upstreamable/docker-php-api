@@ -29,7 +29,7 @@ class TaskSpecContainerSpecConfigsItemNormalizer implements DenormalizerInterfac
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TaskSpecContainerSpecConfigsItem;
+        return get_class($data) === 'Docker\\API\\Model\\TaskSpecContainerSpecConfigsItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -40,6 +40,9 @@ class TaskSpecContainerSpecConfigsItemNormalizer implements DenormalizerInterfac
         $object = new \Docker\API\Model\TaskSpecContainerSpecConfigsItem();
         if (property_exists($data, 'File') && $data->{'File'} !== null) {
             $object->setFile($this->denormalizer->denormalize($data->{'File'}, 'Docker\\API\\Model\\TaskSpecContainerSpecConfigsItemFile', 'json', $context));
+        }
+        if (property_exists($data, 'Runtime') && $data->{'Runtime'} !== null) {
+            $object->setRuntime($data->{'Runtime'});
         }
         if (property_exists($data, 'ConfigID') && $data->{'ConfigID'} !== null) {
             $object->setConfigID($data->{'ConfigID'});
@@ -56,6 +59,9 @@ class TaskSpecContainerSpecConfigsItemNormalizer implements DenormalizerInterfac
         $data = new \stdClass();
         if (null !== $object->getFile()) {
             $data->{'File'} = $this->normalizer->normalize($object->getFile(), 'json', $context);
+        }
+        if (null !== $object->getRuntime()) {
+            $data->{'Runtime'} = $object->getRuntime();
         }
         if (null !== $object->getConfigID()) {
             $data->{'ConfigID'} = $object->getConfigID();

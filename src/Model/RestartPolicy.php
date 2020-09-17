@@ -14,10 +14,6 @@ class RestartPolicy
 {
     /**
      * - Empty string means not to restart.
-    - `always` Always restart
-    - `unless-stopped` Restart always except when the user has manually stopped the container
-    - `on-failure` Restart only when the container exit code is non-zero
-
      *
      * @var string
      */
@@ -31,12 +27,6 @@ class RestartPolicy
 
     /**
      * - Empty string means not to restart.
-    - `always` Always restart
-    - `unless-stopped` Restart always except when the user has manually stopped the container
-    - `on-failure` Restart only when the container exit code is non-zero
-
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -45,14 +35,6 @@ class RestartPolicy
 
     /**
      * - Empty string means not to restart.
-    - `always` Always restart
-    - `unless-stopped` Restart always except when the user has manually stopped the container
-    - `on-failure` Restart only when the container exit code is non-zero
-
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -63,8 +45,6 @@ class RestartPolicy
 
     /**
      * If `on-failure` is used, the number of times to retry before giving up.
-     *
-     * @return int
      */
     public function getMaximumRetryCount(): ?int
     {
@@ -73,10 +53,6 @@ class RestartPolicy
 
     /**
      * If `on-failure` is used, the number of times to retry before giving up.
-     *
-     * @param int $maximumRetryCount
-     *
-     * @return self
      */
     public function setMaximumRetryCount(?int $maximumRetryCount): self
     {

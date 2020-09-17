@@ -15,22 +15,21 @@ class ServiceLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     protected $id;
 
     /**
-     * Get `stdout` and `stderr` logs from a service.
+     * Get `stdout` and `stderr` logs from a service. See also.
 
-     **Note**: This endpoint works only for services with the `json-file` or `journald` logging drivers.
-
+     **Note**: This endpoint works only for services with the `local`,
      *
      * @param string $id              ID or name of the service
      * @param array  $queryParameters {
      *
      *     @var bool $details show service context and extra details provided to logs
-     *     @var bool $follow return the logs as a stream
-
+     *     @var bool $follow keep connection after returning logs
      *     @var bool $stdout Return logs from `stdout`
      *     @var bool $stderr Return logs from `stderr`
      *     @var int $since Only return logs since this time, as a UNIX timestamp
      *     @var bool $timestamps Add timestamps to every log line
-     *     @var string $tail Only return this number of log lines from the end of the logs. Specify as an integer or `all` to output all log lines.
+     *     @var string $tail Only return this number of log lines from the end of the logs.
+
      * }
      */
     public function __construct(string $id, array $queryParameters = [])
@@ -39,7 +38,8 @@ class ServiceLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -51,7 +51,7 @@ class ServiceLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         return str_replace(['{id}'], [$this->id], '/services/{id}/logs');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -84,12 +84,11 @@ class ServiceLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Docker\API\Exception\ServiceLogsNotFoundException
      * @throws \Docker\API\Exception\ServiceLogsInternalServerErrorException
      * @throws \Docker\API\Exception\ServiceLogsServiceUnavailableException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (101 === $status) {
-            return json_decode($body);
-        }
         if (200 === $status) {
             return json_decode($body);
         }

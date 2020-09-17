@@ -13,6 +13,10 @@ namespace Docker\API\Model;
 class BuildPrunePostResponse200
 {
     /**
+     * @var string[]
+     */
+    protected $cachesDeleted;
+    /**
      * Disk space reclaimed in bytes.
      *
      * @var int
@@ -20,9 +24,25 @@ class BuildPrunePostResponse200
     protected $spaceReclaimed;
 
     /**
+     * @return string[]|null
+     */
+    public function getCachesDeleted(): ?array
+    {
+        return $this->cachesDeleted;
+    }
+
+    /**
+     * @param string[]|null $cachesDeleted
+     */
+    public function setCachesDeleted(?array $cachesDeleted): self
+    {
+        $this->cachesDeleted = $cachesDeleted;
+
+        return $this;
+    }
+
+    /**
      * Disk space reclaimed in bytes.
-     *
-     * @return int
      */
     public function getSpaceReclaimed(): ?int
     {
@@ -31,10 +51,6 @@ class BuildPrunePostResponse200
 
     /**
      * Disk space reclaimed in bytes.
-     *
-     * @param int $spaceReclaimed
-     *
-     * @return self
      */
     public function setSpaceReclaimed(?int $spaceReclaimed): self
     {

@@ -29,7 +29,7 @@ class DistributionNameJsonGetResponse200DescriptorNormalizer implements Denormal
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\DistributionNameJsonGetResponse200Descriptor;
+        return get_class($data) === 'Docker\\API\\Model\\DistributionNameJsonGetResponse200Descriptor';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

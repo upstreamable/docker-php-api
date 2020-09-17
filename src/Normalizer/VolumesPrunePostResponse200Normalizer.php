@@ -29,7 +29,7 @@ class VolumesPrunePostResponse200Normalizer implements DenormalizerInterface, No
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\VolumesPrunePostResponse200;
+        return get_class($data) === 'Docker\\API\\Model\\VolumesPrunePostResponse200';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

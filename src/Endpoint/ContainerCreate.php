@@ -16,7 +16,8 @@ class ContainerCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @param \Docker\API\Model\ContainersCreatePostBody $body            Container to create
      * @param array                                      $queryParameters {
      *
-     *     @var string $name Assign the specified name to the container. Must match `/?[a-zA-Z0-9_-]+`.
+     *     @var string $name Assign the specified name to the container. Must match
+
      * }
      */
     public function __construct(\Docker\API\Model\ContainersCreatePostBody $body, array $queryParameters = [])
@@ -25,7 +26,8 @@ class ContainerCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -37,7 +39,7 @@ class ContainerCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         return '/containers/create';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -66,9 +68,9 @@ class ContainerCreate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Docker\API\Exception\ContainerCreateConflictException
      * @throws \Docker\API\Exception\ContainerCreateInternalServerErrorException
      *
-     * @return null|\Docker\API\Model\ContainersCreatePostResponse201
+     * @return \Docker\API\Model\ContainersCreatePostResponse201|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (201 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\ContainersCreatePostResponse201', 'json');

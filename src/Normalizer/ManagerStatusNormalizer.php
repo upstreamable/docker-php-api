@@ -29,7 +29,7 @@ class ManagerStatusNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ManagerStatus;
+        return get_class($data) === 'Docker\\API\\Model\\ManagerStatus';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

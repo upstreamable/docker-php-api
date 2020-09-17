@@ -29,7 +29,7 @@ class ErrorResponseNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ErrorResponse;
+        return get_class($data) === 'Docker\\API\\Model\\ErrorResponse';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

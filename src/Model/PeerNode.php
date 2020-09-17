@@ -27,8 +27,6 @@ class PeerNode
 
     /**
      * Unique identifier of for this node in the swarm.
-     *
-     * @return string
      */
     public function getNodeID(): ?string
     {
@@ -37,10 +35,6 @@ class PeerNode
 
     /**
      * Unique identifier of for this node in the swarm.
-     *
-     * @param string $nodeID
-     *
-     * @return self
      */
     public function setNodeID(?string $nodeID): self
     {
@@ -51,8 +45,6 @@ class PeerNode
 
     /**
      * IP address and ports at which this node can be reached.
-     *
-     * @return string
      */
     public function getAddr(): ?string
     {
@@ -61,10 +53,6 @@ class PeerNode
 
     /**
      * IP address and ports at which this node can be reached.
-     *
-     * @param string $addr
-     *
-     * @return self
      */
     public function setAddr(?string $addr): self
     {

@@ -15,10 +15,9 @@ class ContainerUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     protected $id;
 
     /**
-     * Change various configuration options of a container without having to recreate it.
+     * Change various configuration options of a container without having to.
      *
-     * @param string                                       $id     ID or name of the container
-     * @param \Docker\API\Model\ContainersIdUpdatePostBody $update
+     * @param string $id ID or name of the container
      */
     public function __construct(string $id, \Docker\API\Model\ContainersIdUpdatePostBody $update)
     {
@@ -26,7 +25,8 @@ class ContainerUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         $this->body = $update;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -38,7 +38,7 @@ class ContainerUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         return str_replace(['{id}'], [$this->id], '/containers/{id}/update');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -54,9 +54,9 @@ class ContainerUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Docker\API\Exception\ContainerUpdateNotFoundException
      * @throws \Docker\API\Exception\ContainerUpdateInternalServerErrorException
      *
-     * @return null|\Docker\API\Model\ContainersIdUpdatePostResponse200
+     * @return \Docker\API\Model\ContainersIdUpdatePostResponse200|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\ContainersIdUpdatePostResponse200', 'json');

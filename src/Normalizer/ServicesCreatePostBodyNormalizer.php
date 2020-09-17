@@ -29,7 +29,7 @@ class ServicesCreatePostBodyNormalizer implements DenormalizerInterface, Normali
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ServicesCreatePostBody;
+        return get_class($data) === 'Docker\\API\\Model\\ServicesCreatePostBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -63,7 +63,7 @@ class ServicesCreatePostBodyNormalizer implements DenormalizerInterface, Normali
         if (property_exists($data, 'Networks') && $data->{'Networks'} !== null) {
             $values_1 = [];
             foreach ($data->{'Networks'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Docker\\API\\Model\\ServiceSpecNetworksItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Docker\\API\\Model\\NetworkAttachmentConfig', 'json', $context);
             }
             $object->setNetworks($values_1);
         }

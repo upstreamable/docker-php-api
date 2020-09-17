@@ -19,30 +19,19 @@ class Swarm
      */
     protected $iD;
     /**
-     * The version number of the object such as node, service, etc. This is needed to avoid conflicting writes.
-    The client must send the version number along with the modified specification when updating these objects.
-    This approach ensures safe concurrency and determinism in that the change on the object
-    may not be applied if the version number has changed from the last read. In other words,
-    if two update requests specify the same base version, only one of the requests can succeed.
-    As a result, two separate update requests that happen at the same time will not
-    unintentionally overwrite each other.
-
+     * The version number of the object such as node, service, etc. This is needed.
      *
      * @var ObjectVersion
      */
     protected $version;
     /**
      * Date and time at which the swarm was initialised in.
-    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-
      *
      * @var string
      */
     protected $createdAt;
     /**
      * Date and time at which the swarm was last updated in.
-    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-
      *
      * @var string
      */
@@ -54,7 +43,7 @@ class Swarm
      */
     protected $spec;
     /**
-     * Information about the issuer of leaf TLS certificates and the trusted root CA certificate.
+     * Information about the issuer of leaf TLS certificates and the trusted root.
      *
      * @var TLSInfo
      */
@@ -66,6 +55,24 @@ class Swarm
      */
     protected $rootRotationInProgress;
     /**
+     * DataPathPort specifies the data path port number for data traffic.
+     *
+     * @var int
+     */
+    protected $dataPathPort = 4789;
+    /**
+     * Default Address Pool specifies default subnet pools for global scope.
+     *
+     * @var string[]
+     */
+    protected $defaultAddrPool;
+    /**
+     * SubnetSize specifies the subnet size of the networks created from the.
+     *
+     * @var int
+     */
+    protected $subnetSize = 24;
+    /**
      * JoinTokens contains the tokens workers and managers need to join the swarm.
      *
      * @var JoinTokens
@@ -74,8 +81,6 @@ class Swarm
 
     /**
      * The ID of the swarm.
-     *
-     * @return string
      */
     public function getID(): ?string
     {
@@ -84,10 +89,6 @@ class Swarm
 
     /**
      * The ID of the swarm.
-     *
-     * @param string $iD
-     *
-     * @return self
      */
     public function setID(?string $iD): self
     {
@@ -97,16 +98,7 @@ class Swarm
     }
 
     /**
-     * The version number of the object such as node, service, etc. This is needed to avoid conflicting writes.
-    The client must send the version number along with the modified specification when updating these objects.
-    This approach ensures safe concurrency and determinism in that the change on the object
-    may not be applied if the version number has changed from the last read. In other words,
-    if two update requests specify the same base version, only one of the requests can succeed.
-    As a result, two separate update requests that happen at the same time will not
-    unintentionally overwrite each other.
-
-     *
-     * @return ObjectVersion
+     * The version number of the object such as node, service, etc. This is needed.
      */
     public function getVersion(): ?ObjectVersion
     {
@@ -114,18 +106,7 @@ class Swarm
     }
 
     /**
-     * The version number of the object such as node, service, etc. This is needed to avoid conflicting writes.
-    The client must send the version number along with the modified specification when updating these objects.
-    This approach ensures safe concurrency and determinism in that the change on the object
-    may not be applied if the version number has changed from the last read. In other words,
-    if two update requests specify the same base version, only one of the requests can succeed.
-    As a result, two separate update requests that happen at the same time will not
-    unintentionally overwrite each other.
-
-     *
-     * @param ObjectVersion $version
-     *
-     * @return self
+     * The version number of the object such as node, service, etc. This is needed.
      */
     public function setVersion(?ObjectVersion $version): self
     {
@@ -136,10 +117,6 @@ class Swarm
 
     /**
      * Date and time at which the swarm was initialised in.
-    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-
-     *
-     * @return string
      */
     public function getCreatedAt(): ?string
     {
@@ -148,12 +125,6 @@ class Swarm
 
     /**
      * Date and time at which the swarm was initialised in.
-    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-
-     *
-     * @param string $createdAt
-     *
-     * @return self
      */
     public function setCreatedAt(?string $createdAt): self
     {
@@ -164,10 +135,6 @@ class Swarm
 
     /**
      * Date and time at which the swarm was last updated in.
-    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-
-     *
-     * @return string
      */
     public function getUpdatedAt(): ?string
     {
@@ -176,12 +143,6 @@ class Swarm
 
     /**
      * Date and time at which the swarm was last updated in.
-    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format with nano-seconds.
-
-     *
-     * @param string $updatedAt
-     *
-     * @return self
      */
     public function setUpdatedAt(?string $updatedAt): self
     {
@@ -192,8 +153,6 @@ class Swarm
 
     /**
      * User modifiable swarm configuration.
-     *
-     * @return SwarmSpec
      */
     public function getSpec(): ?SwarmSpec
     {
@@ -202,10 +161,6 @@ class Swarm
 
     /**
      * User modifiable swarm configuration.
-     *
-     * @param SwarmSpec $spec
-     *
-     * @return self
      */
     public function setSpec(?SwarmSpec $spec): self
     {
@@ -215,9 +170,7 @@ class Swarm
     }
 
     /**
-     * Information about the issuer of leaf TLS certificates and the trusted root CA certificate.
-     *
-     * @return TLSInfo
+     * Information about the issuer of leaf TLS certificates and the trusted root.
      */
     public function getTLSInfo(): ?TLSInfo
     {
@@ -225,11 +178,7 @@ class Swarm
     }
 
     /**
-     * Information about the issuer of leaf TLS certificates and the trusted root CA certificate.
-     *
-     * @param TLSInfo $tLSInfo
-     *
-     * @return self
+     * Information about the issuer of leaf TLS certificates and the trusted root.
      */
     public function setTLSInfo(?TLSInfo $tLSInfo): self
     {
@@ -240,8 +189,6 @@ class Swarm
 
     /**
      * Whether there is currently a root CA rotation in progress for the swarm.
-     *
-     * @return bool
      */
     public function getRootRotationInProgress(): ?bool
     {
@@ -250,10 +197,6 @@ class Swarm
 
     /**
      * Whether there is currently a root CA rotation in progress for the swarm.
-     *
-     * @param bool $rootRotationInProgress
-     *
-     * @return self
      */
     public function setRootRotationInProgress(?bool $rootRotationInProgress): self
     {
@@ -263,9 +206,65 @@ class Swarm
     }
 
     /**
-     * JoinTokens contains the tokens workers and managers need to join the swarm.
+     * DataPathPort specifies the data path port number for data traffic.
+     */
+    public function getDataPathPort(): ?int
+    {
+        return $this->dataPathPort;
+    }
+
+    /**
+     * DataPathPort specifies the data path port number for data traffic.
+     */
+    public function setDataPathPort(?int $dataPathPort): self
+    {
+        $this->dataPathPort = $dataPathPort;
+
+        return $this;
+    }
+
+    /**
+     * Default Address Pool specifies default subnet pools for global scope.
      *
-     * @return JoinTokens
+     * @return string[]|null
+     */
+    public function getDefaultAddrPool(): ?array
+    {
+        return $this->defaultAddrPool;
+    }
+
+    /**
+     * Default Address Pool specifies default subnet pools for global scope.
+     *
+     * @param string[]|null $defaultAddrPool
+     */
+    public function setDefaultAddrPool(?array $defaultAddrPool): self
+    {
+        $this->defaultAddrPool = $defaultAddrPool;
+
+        return $this;
+    }
+
+    /**
+     * SubnetSize specifies the subnet size of the networks created from the.
+     */
+    public function getSubnetSize(): ?int
+    {
+        return $this->subnetSize;
+    }
+
+    /**
+     * SubnetSize specifies the subnet size of the networks created from the.
+     */
+    public function setSubnetSize(?int $subnetSize): self
+    {
+        $this->subnetSize = $subnetSize;
+
+        return $this;
+    }
+
+    /**
+     * JoinTokens contains the tokens workers and managers need to join the swarm.
      */
     public function getJoinTokens(): ?JoinTokens
     {
@@ -274,10 +273,6 @@ class Swarm
 
     /**
      * JoinTokens contains the tokens workers and managers need to join the swarm.
-     *
-     * @param JoinTokens $joinTokens
-     *
-     * @return self
      */
     public function setJoinTokens(?JoinTokens $joinTokens): self
     {

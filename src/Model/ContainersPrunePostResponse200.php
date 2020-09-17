@@ -28,7 +28,7 @@ class ContainersPrunePostResponse200
     /**
      * Container IDs that were deleted.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getContainersDeleted(): ?array
     {
@@ -38,9 +38,7 @@ class ContainersPrunePostResponse200
     /**
      * Container IDs that were deleted.
      *
-     * @param string[] $containersDeleted
-     *
-     * @return self
+     * @param string[]|null $containersDeleted
      */
     public function setContainersDeleted(?array $containersDeleted): self
     {
@@ -51,8 +49,6 @@ class ContainersPrunePostResponse200
 
     /**
      * Disk space reclaimed in bytes.
-     *
-     * @return int
      */
     public function getSpaceReclaimed(): ?int
     {
@@ -61,10 +57,6 @@ class ContainersPrunePostResponse200
 
     /**
      * Disk space reclaimed in bytes.
-     *
-     * @param int $spaceReclaimed
-     *
-     * @return self
      */
     public function setSpaceReclaimed(?int $spaceReclaimed): self
     {

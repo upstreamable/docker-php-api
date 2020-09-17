@@ -83,8 +83,6 @@ class PluginConfig
 
     /**
      * Docker Version used to create the plugin.
-     *
-     * @return string
      */
     public function getDockerVersion(): ?string
     {
@@ -93,10 +91,6 @@ class PluginConfig
 
     /**
      * Docker Version used to create the plugin.
-     *
-     * @param string $dockerVersion
-     *
-     * @return self
      */
     public function setDockerVersion(?string $dockerVersion): self
     {
@@ -105,19 +99,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -125,19 +111,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDocumentation(): ?string
     {
         return $this->documentation;
     }
 
-    /**
-     * @param string $documentation
-     *
-     * @return self
-     */
     public function setDocumentation(?string $documentation): self
     {
         $this->documentation = $documentation;
@@ -147,8 +125,6 @@ class PluginConfig
 
     /**
      * The interface between Docker and the plugin.
-     *
-     * @return PluginConfigInterface
      */
     public function getInterface(): ?PluginConfigInterface
     {
@@ -157,10 +133,6 @@ class PluginConfig
 
     /**
      * The interface between Docker and the plugin.
-     *
-     * @param PluginConfigInterface $interface
-     *
-     * @return self
      */
     public function setInterface(?PluginConfigInterface $interface): self
     {
@@ -170,7 +142,7 @@ class PluginConfig
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getEntrypoint(): ?array
     {
@@ -178,9 +150,7 @@ class PluginConfig
     }
 
     /**
-     * @param string[] $entrypoint
-     *
-     * @return self
+     * @param string[]|null $entrypoint
      */
     public function setEntrypoint(?array $entrypoint): self
     {
@@ -189,19 +159,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getWorkDir(): ?string
     {
         return $this->workDir;
     }
 
-    /**
-     * @param string $workDir
-     *
-     * @return self
-     */
     public function setWorkDir(?string $workDir): self
     {
         $this->workDir = $workDir;
@@ -209,19 +171,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return PluginConfigUser
-     */
     public function getUser(): ?PluginConfigUser
     {
         return $this->user;
     }
 
-    /**
-     * @param PluginConfigUser $user
-     *
-     * @return self
-     */
     public function setUser(?PluginConfigUser $user): self
     {
         $this->user = $user;
@@ -229,19 +183,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return PluginConfigNetwork
-     */
     public function getNetwork(): ?PluginConfigNetwork
     {
         return $this->network;
     }
 
-    /**
-     * @param PluginConfigNetwork $network
-     *
-     * @return self
-     */
     public function setNetwork(?PluginConfigNetwork $network): self
     {
         $this->network = $network;
@@ -249,19 +195,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return PluginConfigLinux
-     */
     public function getLinux(): ?PluginConfigLinux
     {
         return $this->linux;
     }
 
-    /**
-     * @param PluginConfigLinux $linux
-     *
-     * @return self
-     */
     public function setLinux(?PluginConfigLinux $linux): self
     {
         $this->linux = $linux;
@@ -269,19 +207,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getPropagatedMount(): ?string
     {
         return $this->propagatedMount;
     }
 
-    /**
-     * @param string $propagatedMount
-     *
-     * @return self
-     */
     public function setPropagatedMount(?string $propagatedMount): self
     {
         $this->propagatedMount = $propagatedMount;
@@ -289,19 +219,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getIpcHost(): ?bool
     {
         return $this->ipcHost;
     }
 
-    /**
-     * @param bool $ipcHost
-     *
-     * @return self
-     */
     public function setIpcHost(?bool $ipcHost): self
     {
         $this->ipcHost = $ipcHost;
@@ -309,19 +231,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getPidHost(): ?bool
     {
         return $this->pidHost;
     }
 
-    /**
-     * @param bool $pidHost
-     *
-     * @return self
-     */
     public function setPidHost(?bool $pidHost): self
     {
         $this->pidHost = $pidHost;
@@ -330,7 +244,7 @@ class PluginConfig
     }
 
     /**
-     * @return PluginMount[]
+     * @return PluginMount[]|null
      */
     public function getMounts(): ?array
     {
@@ -338,9 +252,7 @@ class PluginConfig
     }
 
     /**
-     * @param PluginMount[] $mounts
-     *
-     * @return self
+     * @param PluginMount[]|null $mounts
      */
     public function setMounts(?array $mounts): self
     {
@@ -350,7 +262,7 @@ class PluginConfig
     }
 
     /**
-     * @return PluginEnv[]
+     * @return PluginEnv[]|null
      */
     public function getEnv(): ?array
     {
@@ -358,9 +270,7 @@ class PluginConfig
     }
 
     /**
-     * @param PluginEnv[] $env
-     *
-     * @return self
+     * @param PluginEnv[]|null $env
      */
     public function setEnv(?array $env): self
     {
@@ -369,19 +279,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return PluginConfigArgs
-     */
     public function getArgs(): ?PluginConfigArgs
     {
         return $this->args;
     }
 
-    /**
-     * @param PluginConfigArgs $args
-     *
-     * @return self
-     */
     public function setArgs(?PluginConfigArgs $args): self
     {
         $this->args = $args;
@@ -389,19 +291,11 @@ class PluginConfig
         return $this;
     }
 
-    /**
-     * @return PluginConfigRootfs
-     */
     public function getRootfs(): ?PluginConfigRootfs
     {
         return $this->rootfs;
     }
 
-    /**
-     * @param PluginConfigRootfs $rootfs
-     *
-     * @return self
-     */
     public function setRootfs(?PluginConfigRootfs $rootfs): self
     {
         $this->rootfs = $rootfs;

@@ -13,22 +13,20 @@ namespace Docker\API\Model;
 class TaskSpecResources
 {
     /**
-     * An object describing the resources which can be advertised by a node and requested by a task.
+     * An object describing the resources which can be advertised by a node and.
      *
      * @var ResourceObject
      */
     protected $limits;
     /**
-     * An object describing the resources which can be advertised by a node and requested by a task.
+     * An object describing the resources which can be advertised by a node and.
      *
      * @var ResourceObject
      */
     protected $reservation;
 
     /**
-     * An object describing the resources which can be advertised by a node and requested by a task.
-     *
-     * @return ResourceObject
+     * An object describing the resources which can be advertised by a node and.
      */
     public function getLimits(): ?ResourceObject
     {
@@ -36,11 +34,7 @@ class TaskSpecResources
     }
 
     /**
-     * An object describing the resources which can be advertised by a node and requested by a task.
-     *
-     * @param ResourceObject $limits
-     *
-     * @return self
+     * An object describing the resources which can be advertised by a node and.
      */
     public function setLimits(?ResourceObject $limits): self
     {
@@ -50,9 +44,7 @@ class TaskSpecResources
     }
 
     /**
-     * An object describing the resources which can be advertised by a node and requested by a task.
-     *
-     * @return ResourceObject
+     * An object describing the resources which can be advertised by a node and.
      */
     public function getReservation(): ?ResourceObject
     {
@@ -60,11 +52,7 @@ class TaskSpecResources
     }
 
     /**
-     * An object describing the resources which can be advertised by a node and requested by a task.
-     *
-     * @param ResourceObject $reservation
-     *
-     * @return self
+     * An object describing the resources which can be advertised by a node and.
      */
     public function setReservation(?ResourceObject $reservation): self
     {

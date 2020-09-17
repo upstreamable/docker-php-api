@@ -29,7 +29,7 @@ class AuthPostResponse200Normalizer implements DenormalizerInterface, Normalizer
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\AuthPostResponse200;
+        return get_class($data) === 'Docker\\API\\Model\\AuthPostResponse200';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

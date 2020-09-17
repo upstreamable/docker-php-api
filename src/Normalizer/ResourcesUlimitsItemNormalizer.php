@@ -29,7 +29,7 @@ class ResourcesUlimitsItemNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ResourcesUlimitsItem;
+        return get_class($data) === 'Docker\\API\\Model\\ResourcesUlimitsItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

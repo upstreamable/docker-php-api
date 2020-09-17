@@ -29,19 +29,11 @@ class PluginEnv
      */
     protected $value;
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -49,19 +41,11 @@ class PluginEnv
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -70,7 +54,7 @@ class PluginEnv
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getSettable(): ?array
     {
@@ -78,9 +62,7 @@ class PluginEnv
     }
 
     /**
-     * @param string[] $settable
-     *
-     * @return self
+     * @param string[]|null $settable
      */
     public function setSettable(?array $settable): self
     {
@@ -89,19 +71,11 @@ class PluginEnv
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getValue(): ?string
     {
         return $this->value;
     }
 
-    /**
-     * @param string $value
-     *
-     * @return self
-     */
     public function setValue(?string $value): self
     {
         $this->value = $value;

@@ -29,7 +29,7 @@ class HealthConfigNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\HealthConfig;
+        return get_class($data) === 'Docker\\API\\Model\\HealthConfig';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

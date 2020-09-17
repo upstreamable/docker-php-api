@@ -13,16 +13,14 @@ namespace Docker\API\Model;
 class TaskSpecPlacementPreferencesItemSpread
 {
     /**
-     * label descriptor, such as engine.labels.az.
+     * label descriptor, such as `engine.labels.az`.
      *
      * @var string
      */
     protected $spreadDescriptor;
 
     /**
-     * label descriptor, such as engine.labels.az.
-     *
-     * @return string
+     * label descriptor, such as `engine.labels.az`.
      */
     public function getSpreadDescriptor(): ?string
     {
@@ -30,11 +28,7 @@ class TaskSpecPlacementPreferencesItemSpread
     }
 
     /**
-     * label descriptor, such as engine.labels.az.
-     *
-     * @param string $spreadDescriptor
-     *
-     * @return self
+     * label descriptor, such as `engine.labels.az`.
      */
     public function setSpreadDescriptor(?string $spreadDescriptor): self
     {

@@ -29,7 +29,7 @@ class IndexInfoNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\IndexInfo;
+        return get_class($data) === 'Docker\\API\\Model\\IndexInfo';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

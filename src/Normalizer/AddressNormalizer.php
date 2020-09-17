@@ -29,7 +29,7 @@ class AddressNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Address;
+        return get_class($data) === 'Docker\\API\\Model\\Address';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

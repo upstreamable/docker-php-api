@@ -29,7 +29,7 @@ class CreateImageInfoNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\CreateImageInfo;
+        return get_class($data) === 'Docker\\API\\Model\\CreateImageInfo';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

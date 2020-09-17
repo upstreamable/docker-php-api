@@ -18,7 +18,7 @@ class ContainerSummaryItemNetworkSettings
     protected $networks;
 
     /**
-     * @return EndpointSettings[]
+     * @return EndpointSettings[]|null
      */
     public function getNetworks(): ?\ArrayObject
     {
@@ -26,9 +26,7 @@ class ContainerSummaryItemNetworkSettings
     }
 
     /**
-     * @param EndpointSettings[] $networks
-     *
-     * @return self
+     * @param EndpointSettings[]|null $networks
      */
     public function setNetworks(?\ArrayObject $networks): self
     {

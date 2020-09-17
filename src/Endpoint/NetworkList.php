@@ -13,22 +13,11 @@ namespace Docker\API\Endpoint;
 class NetworkList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\AmpArtaxEndpoint, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Returns a list of networks. For details on the format, see [the network inspect endpoint](#operation/NetworkInspect).
-
-    Note that it uses a different, smaller representation of a network than inspecting a single network. For example,
-    the list of containers attached to the network is not propagated in API versions 1.28 and up.
-
+     * Returns a list of networks. For details on the format, see the.
      *
      * @param array $queryParameters {
      *
-     *     @var string $filters JSON encoded value of the filters (a `map[string][]string`) to process on the networks list. Available filters:
-
-    - `driver=<driver-name>` Matches a network's driver.
-    - `id=<network-id>` Matches all or part of a network ID.
-    - `label=<key>` or `label=<key>=<value>` of a network label.
-    - `name=<network-name>` Matches all or part of a network name.
-    - `scope=["swarm"|"global"|"local"]` Filters networks by scope (`swarm`, `global`, or `local`).
-    - `type=["custom"|"builtin"]` Filters networks by type. The `custom` keyword returns all user-defined networks.
+     *     @var string $filters JSON encoded value of the filters (a `map[string][]string`) to process
 
      * }
      */
@@ -37,7 +26,8 @@ class NetworkList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -49,7 +39,7 @@ class NetworkList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         return '/networks';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -75,9 +65,9 @@ class NetworkList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Docker\API\Exception\NetworkListInternalServerErrorException
      *
-     * @return null|\Docker\API\Model\Network[]
+     * @return \Docker\API\Model\Network[]|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\Network[]', 'json');

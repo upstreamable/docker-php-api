@@ -27,8 +27,6 @@ class Commit
 
     /**
      * Actual commit ID of external tool.
-     *
-     * @return string
      */
     public function getID(): ?string
     {
@@ -37,10 +35,6 @@ class Commit
 
     /**
      * Actual commit ID of external tool.
-     *
-     * @param string $iD
-     *
-     * @return self
      */
     public function setID(?string $iD): self
     {
@@ -51,8 +45,6 @@ class Commit
 
     /**
      * Commit ID of external tool expected by dockerd as set at build time.
-     *
-     * @return string
      */
     public function getExpected(): ?string
     {
@@ -61,10 +53,6 @@ class Commit
 
     /**
      * Commit ID of external tool expected by dockerd as set at build time.
-     *
-     * @param string $expected
-     *
-     * @return self
      */
     public function setExpected(?string $expected): self
     {

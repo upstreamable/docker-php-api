@@ -43,8 +43,6 @@ class EventsGetResponse200
 
     /**
      * The type of object emitting the event.
-     *
-     * @return string
      */
     public function getType(): ?string
     {
@@ -53,10 +51,6 @@ class EventsGetResponse200
 
     /**
      * The type of object emitting the event.
-     *
-     * @param string $type
-     *
-     * @return self
      */
     public function setType(?string $type): self
     {
@@ -67,8 +61,6 @@ class EventsGetResponse200
 
     /**
      * The type of event.
-     *
-     * @return string
      */
     public function getAction(): ?string
     {
@@ -77,10 +69,6 @@ class EventsGetResponse200
 
     /**
      * The type of event.
-     *
-     * @param string $action
-     *
-     * @return self
      */
     public function setAction(?string $action): self
     {
@@ -89,19 +77,11 @@ class EventsGetResponse200
         return $this;
     }
 
-    /**
-     * @return EventsGetResponse200Actor
-     */
     public function getActor(): ?EventsGetResponse200Actor
     {
         return $this->actor;
     }
 
-    /**
-     * @param EventsGetResponse200Actor $actor
-     *
-     * @return self
-     */
     public function setActor(?EventsGetResponse200Actor $actor): self
     {
         $this->actor = $actor;
@@ -111,8 +91,6 @@ class EventsGetResponse200
 
     /**
      * Timestamp of event.
-     *
-     * @return int
      */
     public function getTime(): ?int
     {
@@ -121,10 +99,6 @@ class EventsGetResponse200
 
     /**
      * Timestamp of event.
-     *
-     * @param int $time
-     *
-     * @return self
      */
     public function setTime(?int $time): self
     {
@@ -135,8 +109,6 @@ class EventsGetResponse200
 
     /**
      * Timestamp of event, with nanosecond accuracy.
-     *
-     * @return int
      */
     public function getTimeNano(): ?int
     {
@@ -145,10 +117,6 @@ class EventsGetResponse200
 
     /**
      * Timestamp of event, with nanosecond accuracy.
-     *
-     * @param int $timeNano
-     *
-     * @return self
      */
     public function setTimeNano(?int $timeNano): self
     {

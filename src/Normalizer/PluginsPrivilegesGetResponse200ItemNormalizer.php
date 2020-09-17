@@ -29,7 +29,7 @@ class PluginsPrivilegesGetResponse200ItemNormalizer implements DenormalizerInter
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\PluginsPrivilegesGetResponse200Item;
+        return get_class($data) === 'Docker\\API\\Model\\PluginsPrivilegesGetResponse200Item';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

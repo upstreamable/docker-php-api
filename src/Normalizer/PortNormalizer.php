@@ -29,7 +29,7 @@ class PortNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Port;
+        return get_class($data) === 'Docker\\API\\Model\\Port';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

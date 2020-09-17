@@ -29,7 +29,7 @@ class PluginsNameUpgradePostBodyItemNormalizer implements DenormalizerInterface,
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\PluginsNameUpgradePostBodyItem;
+        return get_class($data) === 'Docker\\API\\Model\\PluginsNameUpgradePostBodyItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

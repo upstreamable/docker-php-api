@@ -29,7 +29,7 @@ class NetworkNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Network;
+        return get_class($data) === 'Docker\\API\\Model\\Network';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

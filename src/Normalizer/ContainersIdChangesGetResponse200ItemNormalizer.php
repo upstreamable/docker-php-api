@@ -29,7 +29,7 @@ class ContainersIdChangesGetResponse200ItemNormalizer implements DenormalizerInt
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ContainersIdChangesGetResponse200Item;
+        return get_class($data) === 'Docker\\API\\Model\\ContainersIdChangesGetResponse200Item';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

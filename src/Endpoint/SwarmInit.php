@@ -12,15 +12,13 @@ namespace Docker\API\Endpoint;
 
 class SwarmInit extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\AmpArtaxEndpoint, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    /**
-     * @param \Docker\API\Model\SwarmInitPostBody $body
-     */
     public function __construct(\Docker\API\Model\SwarmInitPostBody $body)
     {
         $this->body = $body;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -32,7 +30,7 @@ class SwarmInit extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         return '/swarm/init';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -48,8 +46,10 @@ class SwarmInit extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Docker\API\Exception\SwarmInitBadRequestException
      * @throws \Docker\API\Exception\SwarmInitInternalServerErrorException
      * @throws \Docker\API\Exception\SwarmInitServiceUnavailableException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return json_decode($body);

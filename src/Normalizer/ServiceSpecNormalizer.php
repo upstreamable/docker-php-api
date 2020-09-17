@@ -29,7 +29,7 @@ class ServiceSpecNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ServiceSpec;
+        return get_class($data) === 'Docker\\API\\Model\\ServiceSpec';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -63,7 +63,7 @@ class ServiceSpecNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'Networks') && $data->{'Networks'} !== null) {
             $values_1 = [];
             foreach ($data->{'Networks'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Docker\\API\\Model\\ServiceSpecNetworksItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Docker\\API\\Model\\NetworkAttachmentConfig', 'json', $context);
             }
             $object->setNetworks($values_1);
         }

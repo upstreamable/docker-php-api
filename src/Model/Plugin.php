@@ -45,19 +45,11 @@ class Plugin
      */
     protected $config;
 
-    /**
-     * @return string
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class Plugin
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -87,8 +71,6 @@ class Plugin
 
     /**
      * True if the plugin is running. False if the plugin is not running, only installed.
-     *
-     * @return bool
      */
     public function getEnabled(): ?bool
     {
@@ -97,10 +79,6 @@ class Plugin
 
     /**
      * True if the plugin is running. False if the plugin is not running, only installed.
-     *
-     * @param bool $enabled
-     *
-     * @return self
      */
     public function setEnabled(?bool $enabled): self
     {
@@ -111,8 +89,6 @@ class Plugin
 
     /**
      * Settings that can be modified by users.
-     *
-     * @return PluginSettings
      */
     public function getSettings(): ?PluginSettings
     {
@@ -121,10 +97,6 @@ class Plugin
 
     /**
      * Settings that can be modified by users.
-     *
-     * @param PluginSettings $settings
-     *
-     * @return self
      */
     public function setSettings(?PluginSettings $settings): self
     {
@@ -135,8 +107,6 @@ class Plugin
 
     /**
      * plugin remote reference used to push/pull the plugin.
-     *
-     * @return string
      */
     public function getPluginReference(): ?string
     {
@@ -145,10 +115,6 @@ class Plugin
 
     /**
      * plugin remote reference used to push/pull the plugin.
-     *
-     * @param string $pluginReference
-     *
-     * @return self
      */
     public function setPluginReference(?string $pluginReference): self
     {
@@ -159,8 +125,6 @@ class Plugin
 
     /**
      * The config of a plugin.
-     *
-     * @return PluginConfig
      */
     public function getConfig(): ?PluginConfig
     {
@@ -169,10 +133,6 @@ class Plugin
 
     /**
      * The config of a plugin.
-     *
-     * @param PluginConfig $config
-     *
-     * @return self
      */
     public function setConfig(?PluginConfig $config): self
     {

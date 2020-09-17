@@ -29,7 +29,7 @@ class GraphDriverDataNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\GraphDriverData;
+        return get_class($data) === 'Docker\\API\\Model\\GraphDriverData';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

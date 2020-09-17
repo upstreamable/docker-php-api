@@ -25,19 +25,11 @@ class TaskStatusContainerStatus
      */
     protected $exitCode;
 
-    /**
-     * @return string
-     */
     public function getContainerID(): ?string
     {
         return $this->containerID;
     }
 
-    /**
-     * @param string $containerID
-     *
-     * @return self
-     */
     public function setContainerID(?string $containerID): self
     {
         $this->containerID = $containerID;
@@ -45,19 +37,11 @@ class TaskStatusContainerStatus
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getPID(): ?int
     {
         return $this->pID;
     }
 
-    /**
-     * @param int $pID
-     *
-     * @return self
-     */
     public function setPID(?int $pID): self
     {
         $this->pID = $pID;
@@ -65,19 +49,11 @@ class TaskStatusContainerStatus
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getExitCode(): ?int
     {
         return $this->exitCode;
     }
 
-    /**
-     * @param int $exitCode
-     *
-     * @return self
-     */
     public function setExitCode(?int $exitCode): self
     {
         $this->exitCode = $exitCode;

@@ -29,7 +29,7 @@ class MountBindOptionsNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\MountBindOptions;
+        return get_class($data) === 'Docker\\API\\Model\\MountBindOptions';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -41,6 +41,9 @@ class MountBindOptionsNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'Propagation') && $data->{'Propagation'} !== null) {
             $object->setPropagation($data->{'Propagation'});
         }
+        if (property_exists($data, 'NonRecursive') && $data->{'NonRecursive'} !== null) {
+            $object->setNonRecursive($data->{'NonRecursive'});
+        }
 
         return $object;
     }
@@ -50,6 +53,9 @@ class MountBindOptionsNormalizer implements DenormalizerInterface, NormalizerInt
         $data = new \stdClass();
         if (null !== $object->getPropagation()) {
             $data->{'Propagation'} = $object->getPropagation();
+        }
+        if (null !== $object->getNonRecursive()) {
+            $data->{'NonRecursive'} = $object->getNonRecursive();
         }
 
         return $data;

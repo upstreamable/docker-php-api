@@ -29,7 +29,7 @@ class PushImageInfoNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\PushImageInfo;
+        return get_class($data) === 'Docker\\API\\Model\\PushImageInfo';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

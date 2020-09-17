@@ -15,13 +15,13 @@ class ContainerResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     protected $id;
 
     /**
-     * Resize the TTY for a container. You must restart the container for the resize to take effect.
+     * Resize the TTY for a container.
      *
      * @param string $id              ID or name of the container
      * @param array  $queryParameters {
      *
-     *     @var int $h Height of the tty session in characters
-     *     @var int $w Width of the tty session in characters
+     *     @var int $h Height of the TTY session in characters
+     *     @var int $w Width of the TTY session in characters
      * }
      */
     public function __construct(string $id, array $queryParameters = [])
@@ -30,7 +30,8 @@ class ContainerResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -42,7 +43,7 @@ class ContainerResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         return str_replace(['{id}'], [$this->id], '/containers/{id}/resize');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -69,8 +70,10 @@ class ContainerResize extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Docker\API\Exception\ContainerResizeNotFoundException
      * @throws \Docker\API\Exception\ContainerResizeInternalServerErrorException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return null;

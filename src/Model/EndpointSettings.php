@@ -82,8 +82,6 @@ class EndpointSettings
     protected $macAddress;
     /**
      * DriverOpts is a mapping of driver options and values. These options.
-    are passed directly to the driver and are driver specific.
-
      *
      * @var string[]
      */
@@ -91,8 +89,6 @@ class EndpointSettings
 
     /**
      * EndpointIPAMConfig represents an endpoint's IPAM configuration.
-     *
-     * @return EndpointIPAMConfig
      */
     public function getIPAMConfig(): ?EndpointIPAMConfig
     {
@@ -101,10 +97,6 @@ class EndpointSettings
 
     /**
      * EndpointIPAMConfig represents an endpoint's IPAM configuration.
-     *
-     * @param EndpointIPAMConfig $iPAMConfig
-     *
-     * @return self
      */
     public function setIPAMConfig(?EndpointIPAMConfig $iPAMConfig): self
     {
@@ -114,7 +106,7 @@ class EndpointSettings
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getLinks(): ?array
     {
@@ -122,9 +114,7 @@ class EndpointSettings
     }
 
     /**
-     * @param string[] $links
-     *
-     * @return self
+     * @param string[]|null $links
      */
     public function setLinks(?array $links): self
     {
@@ -134,7 +124,7 @@ class EndpointSettings
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getAliases(): ?array
     {
@@ -142,9 +132,7 @@ class EndpointSettings
     }
 
     /**
-     * @param string[] $aliases
-     *
-     * @return self
+     * @param string[]|null $aliases
      */
     public function setAliases(?array $aliases): self
     {
@@ -155,8 +143,6 @@ class EndpointSettings
 
     /**
      * Unique ID of the network.
-     *
-     * @return string
      */
     public function getNetworkID(): ?string
     {
@@ -165,10 +151,6 @@ class EndpointSettings
 
     /**
      * Unique ID of the network.
-     *
-     * @param string $networkID
-     *
-     * @return self
      */
     public function setNetworkID(?string $networkID): self
     {
@@ -179,8 +161,6 @@ class EndpointSettings
 
     /**
      * Unique ID for the service endpoint in a Sandbox.
-     *
-     * @return string
      */
     public function getEndpointID(): ?string
     {
@@ -189,10 +169,6 @@ class EndpointSettings
 
     /**
      * Unique ID for the service endpoint in a Sandbox.
-     *
-     * @param string $endpointID
-     *
-     * @return self
      */
     public function setEndpointID(?string $endpointID): self
     {
@@ -203,8 +179,6 @@ class EndpointSettings
 
     /**
      * Gateway address for this network.
-     *
-     * @return string
      */
     public function getGateway(): ?string
     {
@@ -213,10 +187,6 @@ class EndpointSettings
 
     /**
      * Gateway address for this network.
-     *
-     * @param string $gateway
-     *
-     * @return self
      */
     public function setGateway(?string $gateway): self
     {
@@ -227,8 +197,6 @@ class EndpointSettings
 
     /**
      * IPv4 address.
-     *
-     * @return string
      */
     public function getIPAddress(): ?string
     {
@@ -237,10 +205,6 @@ class EndpointSettings
 
     /**
      * IPv4 address.
-     *
-     * @param string $iPAddress
-     *
-     * @return self
      */
     public function setIPAddress(?string $iPAddress): self
     {
@@ -251,8 +215,6 @@ class EndpointSettings
 
     /**
      * Mask length of the IPv4 address.
-     *
-     * @return int
      */
     public function getIPPrefixLen(): ?int
     {
@@ -261,10 +223,6 @@ class EndpointSettings
 
     /**
      * Mask length of the IPv4 address.
-     *
-     * @param int $iPPrefixLen
-     *
-     * @return self
      */
     public function setIPPrefixLen(?int $iPPrefixLen): self
     {
@@ -275,8 +233,6 @@ class EndpointSettings
 
     /**
      * IPv6 gateway address.
-     *
-     * @return string
      */
     public function getIPv6Gateway(): ?string
     {
@@ -285,10 +241,6 @@ class EndpointSettings
 
     /**
      * IPv6 gateway address.
-     *
-     * @param string $iPv6Gateway
-     *
-     * @return self
      */
     public function setIPv6Gateway(?string $iPv6Gateway): self
     {
@@ -299,8 +251,6 @@ class EndpointSettings
 
     /**
      * Global IPv6 address.
-     *
-     * @return string
      */
     public function getGlobalIPv6Address(): ?string
     {
@@ -309,10 +259,6 @@ class EndpointSettings
 
     /**
      * Global IPv6 address.
-     *
-     * @param string $globalIPv6Address
-     *
-     * @return self
      */
     public function setGlobalIPv6Address(?string $globalIPv6Address): self
     {
@@ -323,8 +269,6 @@ class EndpointSettings
 
     /**
      * Mask length of the global IPv6 address.
-     *
-     * @return int
      */
     public function getGlobalIPv6PrefixLen(): ?int
     {
@@ -333,10 +277,6 @@ class EndpointSettings
 
     /**
      * Mask length of the global IPv6 address.
-     *
-     * @param int $globalIPv6PrefixLen
-     *
-     * @return self
      */
     public function setGlobalIPv6PrefixLen(?int $globalIPv6PrefixLen): self
     {
@@ -347,8 +287,6 @@ class EndpointSettings
 
     /**
      * MAC address for the endpoint on this network.
-     *
-     * @return string
      */
     public function getMacAddress(): ?string
     {
@@ -357,10 +295,6 @@ class EndpointSettings
 
     /**
      * MAC address for the endpoint on this network.
-     *
-     * @param string $macAddress
-     *
-     * @return self
      */
     public function setMacAddress(?string $macAddress): self
     {
@@ -371,10 +305,8 @@ class EndpointSettings
 
     /**
      * DriverOpts is a mapping of driver options and values. These options.
-    are passed directly to the driver and are driver specific.
-
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getDriverOpts(): ?\ArrayObject
     {
@@ -383,12 +315,8 @@ class EndpointSettings
 
     /**
      * DriverOpts is a mapping of driver options and values. These options.
-    are passed directly to the driver and are driver specific.
-
      *
-     * @param string[] $driverOpts
-     *
-     * @return self
+     * @param string[]|null $driverOpts
      */
     public function setDriverOpts(?\ArrayObject $driverOpts): self
     {

@@ -29,7 +29,7 @@ class SwarmSpecEncryptionConfigNormalizer implements DenormalizerInterface, Norm
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\SwarmSpecEncryptionConfig;
+        return get_class($data) === 'Docker\\API\\Model\\SwarmSpecEncryptionConfig';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

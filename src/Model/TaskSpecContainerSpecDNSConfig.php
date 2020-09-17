@@ -25,7 +25,7 @@ class TaskSpecContainerSpecDNSConfig
      */
     protected $search;
     /**
-     * A list of internal resolver variables to be modified (e.g., `debug`, `ndots:3`, etc.).
+     * A list of internal resolver variables to be modified (e.g.,.
      *
      * @var string[]
      */
@@ -34,7 +34,7 @@ class TaskSpecContainerSpecDNSConfig
     /**
      * The IP addresses of the name servers.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getNameservers(): ?array
     {
@@ -44,9 +44,7 @@ class TaskSpecContainerSpecDNSConfig
     /**
      * The IP addresses of the name servers.
      *
-     * @param string[] $nameservers
-     *
-     * @return self
+     * @param string[]|null $nameservers
      */
     public function setNameservers(?array $nameservers): self
     {
@@ -58,7 +56,7 @@ class TaskSpecContainerSpecDNSConfig
     /**
      * A search list for host-name lookup.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getSearch(): ?array
     {
@@ -68,9 +66,7 @@ class TaskSpecContainerSpecDNSConfig
     /**
      * A search list for host-name lookup.
      *
-     * @param string[] $search
-     *
-     * @return self
+     * @param string[]|null $search
      */
     public function setSearch(?array $search): self
     {
@@ -80,9 +76,9 @@ class TaskSpecContainerSpecDNSConfig
     }
 
     /**
-     * A list of internal resolver variables to be modified (e.g., `debug`, `ndots:3`, etc.).
+     * A list of internal resolver variables to be modified (e.g.,.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getOptions(): ?array
     {
@@ -90,11 +86,9 @@ class TaskSpecContainerSpecDNSConfig
     }
 
     /**
-     * A list of internal resolver variables to be modified (e.g., `debug`, `ndots:3`, etc.).
+     * A list of internal resolver variables to be modified (e.g.,.
      *
-     * @param string[] $options
-     *
-     * @return self
+     * @param string[]|null $options
      */
     public function setOptions(?array $options): self
     {

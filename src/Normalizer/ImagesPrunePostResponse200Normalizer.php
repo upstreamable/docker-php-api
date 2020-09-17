@@ -29,7 +29,7 @@ class ImagesPrunePostResponse200Normalizer implements DenormalizerInterface, Nor
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ImagesPrunePostResponse200;
+        return get_class($data) === 'Docker\\API\\Model\\ImagesPrunePostResponse200';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

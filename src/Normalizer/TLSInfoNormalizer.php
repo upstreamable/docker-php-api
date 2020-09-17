@@ -29,7 +29,7 @@ class TLSInfoNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TLSInfo;
+        return get_class($data) === 'Docker\\API\\Model\\TLSInfo';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,7 +29,7 @@ class TaskSpecRestartPolicyNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TaskSpecRestartPolicy;
+        return get_class($data) === 'Docker\\API\\Model\\TaskSpecRestartPolicy';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

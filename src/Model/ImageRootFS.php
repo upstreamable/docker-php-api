@@ -25,19 +25,11 @@ class ImageRootFS
      */
     protected $baseLayer;
 
-    /**
-     * @return string
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -46,7 +38,7 @@ class ImageRootFS
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getLayers(): ?array
     {
@@ -54,9 +46,7 @@ class ImageRootFS
     }
 
     /**
-     * @param string[] $layers
-     *
-     * @return self
+     * @param string[]|null $layers
      */
     public function setLayers(?array $layers): self
     {
@@ -65,19 +55,11 @@ class ImageRootFS
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getBaseLayer(): ?string
     {
         return $this->baseLayer;
     }
 
-    /**
-     * @param string $baseLayer
-     *
-     * @return self
-     */
     public function setBaseLayer(?string $baseLayer): self
     {
         $this->baseLayer = $baseLayer;

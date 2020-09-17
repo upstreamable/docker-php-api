@@ -27,8 +27,6 @@ class JoinTokens
 
     /**
      * The token workers can use to join the swarm.
-     *
-     * @return string
      */
     public function getWorker(): ?string
     {
@@ -37,10 +35,6 @@ class JoinTokens
 
     /**
      * The token workers can use to join the swarm.
-     *
-     * @param string $worker
-     *
-     * @return self
      */
     public function setWorker(?string $worker): self
     {
@@ -51,8 +45,6 @@ class JoinTokens
 
     /**
      * The token managers can use to join the swarm.
-     *
-     * @return string
      */
     public function getManager(): ?string
     {
@@ -61,10 +53,6 @@ class JoinTokens
 
     /**
      * The token managers can use to join the swarm.
-     *
-     * @param string $manager
-     *
-     * @return self
      */
     public function setManager(?string $manager): self
     {

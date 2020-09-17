@@ -15,18 +15,23 @@ class ServiceUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected $id;
 
     /**
-     * @param string                                     $id              ID or name of service
-     * @param \Docker\API\Model\ServicesIdUpdatePostBody $body
-     * @param array                                      $queryParameters {
+     * @param string $id              ID or name of service
+     * @param array  $queryParameters {
      *
-     *     @var int $version The version number of the service object being updated. This is required to avoid conflicting writes.
-     *     @var string $registryAuthFrom If the X-Registry-Auth header is not specified, this parameter indicates where to find registry authorization credentials. The valid values are `spec` and `previous-spec`.
-     *     @var string $rollback Set to this parameter to `previous` to cause a server-side rollback to the previous service spec. The supplied spec will be ignored in this case.
+     *     @var int $version The version number of the service object being updated. This is
+    This version number should be the value as currently set on the
+    service *before* the update. You can find the current version by
+
+     *     @var string $registryAuthFrom If the `X-Registry-Auth` header is not specified, this parameter
+
+     *     @var string $rollback Set to this parameter to `previous` to cause a server-side rollback
+
      * }
      *
      * @param array $headerParameters {
      *
-     *     @var string $X-Registry-Auth A base64-encoded auth configuration for pulling from private registries. [See the authentication section for details.](#section/Authentication)
+     *     @var string $X-Registry-Auth A base64url-encoded auth configuration for pulling from private
+
      * }
      */
     public function __construct(string $id, \Docker\API\Model\ServicesIdUpdatePostBody $body, array $queryParameters = [], array $headerParameters = [])
@@ -37,7 +42,8 @@ class ServiceUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         $this->headerParameters = $headerParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -49,7 +55,7 @@ class ServiceUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         return str_replace(['{id}'], [$this->id], '/services/{id}/update');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -91,9 +97,9 @@ class ServiceUpdate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Docker\API\Exception\ServiceUpdateInternalServerErrorException
      * @throws \Docker\API\Exception\ServiceUpdateServiceUnavailableException
      *
-     * @return null|\Docker\API\Model\ServiceUpdateResponse
+     * @return \Docker\API\Model\ServiceUpdateResponse|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\ServiceUpdateResponse', 'json');

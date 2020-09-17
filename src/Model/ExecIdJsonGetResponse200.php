@@ -59,19 +59,11 @@ class ExecIdJsonGetResponse200
      */
     protected $pid;
 
-    /**
-     * @return bool
-     */
     public function getCanRemove(): ?bool
     {
         return $this->canRemove;
     }
 
-    /**
-     * @param bool $canRemove
-     *
-     * @return self
-     */
     public function setCanRemove(?bool $canRemove): self
     {
         $this->canRemove = $canRemove;
@@ -79,19 +71,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDetachKeys(): ?string
     {
         return $this->detachKeys;
     }
 
-    /**
-     * @param string $detachKeys
-     *
-     * @return self
-     */
     public function setDetachKeys(?string $detachKeys): self
     {
         $this->detachKeys = $detachKeys;
@@ -99,19 +83,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getID(): ?string
     {
         return $this->iD;
     }
 
-    /**
-     * @param string $iD
-     *
-     * @return self
-     */
     public function setID(?string $iD): self
     {
         $this->iD = $iD;
@@ -119,19 +95,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getRunning(): ?bool
     {
         return $this->running;
     }
 
-    /**
-     * @param bool $running
-     *
-     * @return self
-     */
     public function setRunning(?bool $running): self
     {
         $this->running = $running;
@@ -139,19 +107,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getExitCode(): ?int
     {
         return $this->exitCode;
     }
 
-    /**
-     * @param int $exitCode
-     *
-     * @return self
-     */
     public function setExitCode(?int $exitCode): self
     {
         $this->exitCode = $exitCode;
@@ -159,19 +119,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return ProcessConfig
-     */
     public function getProcessConfig(): ?ProcessConfig
     {
         return $this->processConfig;
     }
 
-    /**
-     * @param ProcessConfig $processConfig
-     *
-     * @return self
-     */
     public function setProcessConfig(?ProcessConfig $processConfig): self
     {
         $this->processConfig = $processConfig;
@@ -179,19 +131,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getOpenStdin(): ?bool
     {
         return $this->openStdin;
     }
 
-    /**
-     * @param bool $openStdin
-     *
-     * @return self
-     */
     public function setOpenStdin(?bool $openStdin): self
     {
         $this->openStdin = $openStdin;
@@ -199,19 +143,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getOpenStderr(): ?bool
     {
         return $this->openStderr;
     }
 
-    /**
-     * @param bool $openStderr
-     *
-     * @return self
-     */
     public function setOpenStderr(?bool $openStderr): self
     {
         $this->openStderr = $openStderr;
@@ -219,19 +155,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getOpenStdout(): ?bool
     {
         return $this->openStdout;
     }
 
-    /**
-     * @param bool $openStdout
-     *
-     * @return self
-     */
     public function setOpenStdout(?bool $openStdout): self
     {
         $this->openStdout = $openStdout;
@@ -239,19 +167,11 @@ class ExecIdJsonGetResponse200
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getContainerID(): ?string
     {
         return $this->containerID;
     }
 
-    /**
-     * @param string $containerID
-     *
-     * @return self
-     */
     public function setContainerID(?string $containerID): self
     {
         $this->containerID = $containerID;
@@ -261,8 +181,6 @@ class ExecIdJsonGetResponse200
 
     /**
      * The system process ID for the exec process.
-     *
-     * @return int
      */
     public function getPid(): ?int
     {
@@ -271,10 +189,6 @@ class ExecIdJsonGetResponse200
 
     /**
      * The system process ID for the exec process.
-     *
-     * @param int $pid
-     *
-     * @return self
      */
     public function setPid(?int $pid): self
     {

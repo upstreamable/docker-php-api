@@ -29,7 +29,7 @@ class ExecIdStartPostBodyNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ExecIdStartPostBody;
+        return get_class($data) === 'Docker\\API\\Model\\ExecIdStartPostBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

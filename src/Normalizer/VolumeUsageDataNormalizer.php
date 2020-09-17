@@ -29,7 +29,7 @@ class VolumeUsageDataNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\VolumeUsageData;
+        return get_class($data) === 'Docker\\API\\Model\\VolumeUsageData';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

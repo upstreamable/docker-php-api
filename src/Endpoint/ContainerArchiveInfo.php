@@ -15,7 +15,7 @@ class ContainerArchiveInfo extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
     protected $id;
 
     /**
-     * A response header `X-Docker-Container-Path-Stat` is return containing a base64 - encoded JSON object with some filesystem header information about the path.
+     * A response header `X-Docker-Container-Path-Stat` is returned, containing.
      *
      * @param string $id              ID or name of the container
      * @param array  $queryParameters {
@@ -29,7 +29,8 @@ class ContainerArchiveInfo extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -41,7 +42,7 @@ class ContainerArchiveInfo extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
         return str_replace(['{id}'], [$this->id], '/containers/{id}/archive');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -68,8 +69,10 @@ class ContainerArchiveInfo extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
      * @throws \Docker\API\Exception\ContainerArchiveInfoBadRequestException
      * @throws \Docker\API\Exception\ContainerArchiveInfoNotFoundException
      * @throws \Docker\API\Exception\ContainerArchiveInfoInternalServerErrorException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return null;

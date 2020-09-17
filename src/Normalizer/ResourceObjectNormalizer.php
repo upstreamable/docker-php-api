@@ -29,7 +29,7 @@ class ResourceObjectNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ResourceObject;
+        return get_class($data) === 'Docker\\API\\Model\\ResourceObject';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

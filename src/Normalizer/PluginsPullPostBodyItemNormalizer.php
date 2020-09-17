@@ -29,7 +29,7 @@ class PluginsPullPostBodyItemNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\PluginsPullPostBodyItem;
+        return get_class($data) === 'Docker\\API\\Model\\PluginsPullPostBodyItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

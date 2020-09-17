@@ -37,19 +37,11 @@ class DistributionNameJsonGetResponse200PlatformsItem
      */
     protected $features;
 
-    /**
-     * @return string
-     */
     public function getArchitecture(): ?string
     {
         return $this->architecture;
     }
 
-    /**
-     * @param string $architecture
-     *
-     * @return self
-     */
     public function setArchitecture(?string $architecture): self
     {
         $this->architecture = $architecture;
@@ -57,19 +49,11 @@ class DistributionNameJsonGetResponse200PlatformsItem
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getOS(): ?string
     {
         return $this->oS;
     }
 
-    /**
-     * @param string $oS
-     *
-     * @return self
-     */
     public function setOS(?string $oS): self
     {
         $this->oS = $oS;
@@ -77,19 +61,11 @@ class DistributionNameJsonGetResponse200PlatformsItem
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getOSVersion(): ?string
     {
         return $this->oSVersion;
     }
 
-    /**
-     * @param string $oSVersion
-     *
-     * @return self
-     */
     public function setOSVersion(?string $oSVersion): self
     {
         $this->oSVersion = $oSVersion;
@@ -98,7 +74,7 @@ class DistributionNameJsonGetResponse200PlatformsItem
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getOSFeatures(): ?array
     {
@@ -106,9 +82,7 @@ class DistributionNameJsonGetResponse200PlatformsItem
     }
 
     /**
-     * @param string[] $oSFeatures
-     *
-     * @return self
+     * @param string[]|null $oSFeatures
      */
     public function setOSFeatures(?array $oSFeatures): self
     {
@@ -117,19 +91,11 @@ class DistributionNameJsonGetResponse200PlatformsItem
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getVariant(): ?string
     {
         return $this->variant;
     }
 
-    /**
-     * @param string $variant
-     *
-     * @return self
-     */
     public function setVariant(?string $variant): self
     {
         $this->variant = $variant;
@@ -138,7 +104,7 @@ class DistributionNameJsonGetResponse200PlatformsItem
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getFeatures(): ?array
     {
@@ -146,9 +112,7 @@ class DistributionNameJsonGetResponse200PlatformsItem
     }
 
     /**
-     * @param string[] $features
-     *
-     * @return self
+     * @param string[]|null $features
      */
     public function setFeatures(?array $features): self
     {

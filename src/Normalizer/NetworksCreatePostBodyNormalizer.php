@@ -29,7 +29,7 @@ class NetworksCreatePostBodyNormalizer implements DenormalizerInterface, Normali
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\NetworksCreatePostBody;
+        return get_class($data) === 'Docker\\API\\Model\\NetworksCreatePostBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

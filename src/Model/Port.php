@@ -13,6 +13,8 @@ namespace Docker\API\Model;
 class Port
 {
     /**
+     * Host IP address that the container's port is mapped to.
+     *
      * @var string
      */
     protected $iP;
@@ -34,7 +36,7 @@ class Port
     protected $type;
 
     /**
-     * @return string
+     * Host IP address that the container's port is mapped to.
      */
     public function getIP(): ?string
     {
@@ -42,9 +44,7 @@ class Port
     }
 
     /**
-     * @param string $iP
-     *
-     * @return self
+     * Host IP address that the container's port is mapped to.
      */
     public function setIP(?string $iP): self
     {
@@ -55,8 +55,6 @@ class Port
 
     /**
      * Port on the container.
-     *
-     * @return int
      */
     public function getPrivatePort(): ?int
     {
@@ -65,10 +63,6 @@ class Port
 
     /**
      * Port on the container.
-     *
-     * @param int $privatePort
-     *
-     * @return self
      */
     public function setPrivatePort(?int $privatePort): self
     {
@@ -79,8 +73,6 @@ class Port
 
     /**
      * Port exposed on the host.
-     *
-     * @return int
      */
     public function getPublicPort(): ?int
     {
@@ -89,10 +81,6 @@ class Port
 
     /**
      * Port exposed on the host.
-     *
-     * @param int $publicPort
-     *
-     * @return self
      */
     public function setPublicPort(?int $publicPort): self
     {
@@ -101,19 +89,11 @@ class Port
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;

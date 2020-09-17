@@ -17,11 +17,6 @@ class ConfigList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      *     @var string $filters A JSON encoded value of the filters (a `map[string][]string`) to process on the configs list. Available filters:
 
-    - `id=<config id>`
-    - `label=<key> or label=<key>=value`
-    - `name=<config name>`
-    - `names=<config name>`
-
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -29,7 +24,8 @@ class ConfigList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         $this->queryParameters = $queryParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -41,7 +37,7 @@ class ConfigList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         return '/configs';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -68,9 +64,9 @@ class ConfigList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Docker\API\Exception\ConfigListInternalServerErrorException
      * @throws \Docker\API\Exception\ConfigListServiceUnavailableException
      *
-     * @return null|\Docker\API\Model\Config[]
+     * @return \Docker\API\Model\Config[]|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Docker\\API\\Model\\Config[]', 'json');

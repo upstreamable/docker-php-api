@@ -25,19 +25,11 @@ class EngineDescription
      */
     protected $plugins;
 
-    /**
-     * @return string
-     */
     public function getEngineVersion(): ?string
     {
         return $this->engineVersion;
     }
 
-    /**
-     * @param string $engineVersion
-     *
-     * @return self
-     */
     public function setEngineVersion(?string $engineVersion): self
     {
         $this->engineVersion = $engineVersion;
@@ -46,7 +38,7 @@ class EngineDescription
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getLabels(): ?\ArrayObject
     {
@@ -54,9 +46,7 @@ class EngineDescription
     }
 
     /**
-     * @param string[] $labels
-     *
-     * @return self
+     * @param string[]|null $labels
      */
     public function setLabels(?\ArrayObject $labels): self
     {
@@ -66,7 +56,7 @@ class EngineDescription
     }
 
     /**
-     * @return EngineDescriptionPluginsItem[]
+     * @return EngineDescriptionPluginsItem[]|null
      */
     public function getPlugins(): ?array
     {
@@ -74,9 +64,7 @@ class EngineDescription
     }
 
     /**
-     * @param EngineDescriptionPluginsItem[] $plugins
-     *
-     * @return self
+     * @param EngineDescriptionPluginsItem[]|null $plugins
      */
     public function setPlugins(?array $plugins): self
     {

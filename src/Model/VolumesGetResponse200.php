@@ -28,7 +28,7 @@ class VolumesGetResponse200
     /**
      * List of volumes.
      *
-     * @return Volume[]
+     * @return Volume[]|null
      */
     public function getVolumes(): ?array
     {
@@ -38,9 +38,7 @@ class VolumesGetResponse200
     /**
      * List of volumes.
      *
-     * @param Volume[] $volumes
-     *
-     * @return self
+     * @param Volume[]|null $volumes
      */
     public function setVolumes(?array $volumes): self
     {
@@ -52,7 +50,7 @@ class VolumesGetResponse200
     /**
      * Warnings that occurred when fetching the list of volumes.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getWarnings(): ?array
     {
@@ -62,9 +60,7 @@ class VolumesGetResponse200
     /**
      * Warnings that occurred when fetching the list of volumes.
      *
-     * @param string[] $warnings
-     *
-     * @return self
+     * @param string[]|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

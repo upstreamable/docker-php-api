@@ -27,8 +27,6 @@ class ContainersIdWaitPostResponse200
 
     /**
      * Exit code of the container.
-     *
-     * @return int
      */
     public function getStatusCode(): ?int
     {
@@ -37,10 +35,6 @@ class ContainersIdWaitPostResponse200
 
     /**
      * Exit code of the container.
-     *
-     * @param int $statusCode
-     *
-     * @return self
      */
     public function setStatusCode(?int $statusCode): self
     {
@@ -51,8 +45,6 @@ class ContainersIdWaitPostResponse200
 
     /**
      * container waiting error, if any.
-     *
-     * @return ContainersIdWaitPostResponse200Error
      */
     public function getError(): ?ContainersIdWaitPostResponse200Error
     {
@@ -61,10 +53,6 @@ class ContainersIdWaitPostResponse200
 
     /**
      * container waiting error, if any.
-     *
-     * @param ContainersIdWaitPostResponse200Error $error
-     *
-     * @return self
      */
     public function setError(?ContainersIdWaitPostResponse200Error $error): self
     {

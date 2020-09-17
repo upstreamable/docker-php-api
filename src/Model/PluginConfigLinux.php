@@ -26,7 +26,7 @@ class PluginConfigLinux
     protected $devices;
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getCapabilities(): ?array
     {
@@ -34,9 +34,7 @@ class PluginConfigLinux
     }
 
     /**
-     * @param string[] $capabilities
-     *
-     * @return self
+     * @param string[]|null $capabilities
      */
     public function setCapabilities(?array $capabilities): self
     {
@@ -45,19 +43,11 @@ class PluginConfigLinux
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getAllowAllDevices(): ?bool
     {
         return $this->allowAllDevices;
     }
 
-    /**
-     * @param bool $allowAllDevices
-     *
-     * @return self
-     */
     public function setAllowAllDevices(?bool $allowAllDevices): self
     {
         $this->allowAllDevices = $allowAllDevices;
@@ -66,7 +56,7 @@ class PluginConfigLinux
     }
 
     /**
-     * @return PluginDevice[]
+     * @return PluginDevice[]|null
      */
     public function getDevices(): ?array
     {
@@ -74,9 +64,7 @@ class PluginConfigLinux
     }
 
     /**
-     * @param PluginDevice[] $devices
-     *
-     * @return self
+     * @param PluginDevice[]|null $devices
      */
     public function setDevices(?array $devices): self
     {

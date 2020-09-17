@@ -33,19 +33,11 @@ class ProcessConfig
      */
     protected $arguments;
 
-    /**
-     * @return bool
-     */
     public function getPrivileged(): ?bool
     {
         return $this->privileged;
     }
 
-    /**
-     * @param bool $privileged
-     *
-     * @return self
-     */
     public function setPrivileged(?bool $privileged): self
     {
         $this->privileged = $privileged;
@@ -53,19 +45,11 @@ class ProcessConfig
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): ?string
     {
         return $this->user;
     }
 
-    /**
-     * @param string $user
-     *
-     * @return self
-     */
     public function setUser(?string $user): self
     {
         $this->user = $user;
@@ -73,19 +57,11 @@ class ProcessConfig
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getTty(): ?bool
     {
         return $this->tty;
     }
 
-    /**
-     * @param bool $tty
-     *
-     * @return self
-     */
     public function setTty(?bool $tty): self
     {
         $this->tty = $tty;
@@ -93,19 +69,11 @@ class ProcessConfig
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getEntrypoint(): ?string
     {
         return $this->entrypoint;
     }
 
-    /**
-     * @param string $entrypoint
-     *
-     * @return self
-     */
     public function setEntrypoint(?string $entrypoint): self
     {
         $this->entrypoint = $entrypoint;
@@ -114,7 +82,7 @@ class ProcessConfig
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
     public function getArguments(): ?array
     {
@@ -122,9 +90,7 @@ class ProcessConfig
     }
 
     /**
-     * @param string[] $arguments
-     *
-     * @return self
+     * @param string[]|null $arguments
      */
     public function setArguments(?array $arguments): self
     {

@@ -29,7 +29,7 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\Resources;
+        return get_class($data) === 'Docker\\API\\Model\\Resources';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -117,11 +117,18 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
             }
             $object->setDeviceCgroupRules($values_6);
         }
-        if (property_exists($data, 'DiskQuota') && $data->{'DiskQuota'} !== null) {
-            $object->setDiskQuota($data->{'DiskQuota'});
+        if (property_exists($data, 'DeviceRequests') && $data->{'DeviceRequests'} !== null) {
+            $values_7 = [];
+            foreach ($data->{'DeviceRequests'} as $value_7) {
+                $values_7[] = $this->denormalizer->denormalize($value_7, 'Docker\\API\\Model\\DeviceRequest', 'json', $context);
+            }
+            $object->setDeviceRequests($values_7);
         }
         if (property_exists($data, 'KernelMemory') && $data->{'KernelMemory'} !== null) {
             $object->setKernelMemory($data->{'KernelMemory'});
+        }
+        if (property_exists($data, 'KernelMemoryTCP') && $data->{'KernelMemoryTCP'} !== null) {
+            $object->setKernelMemoryTCP($data->{'KernelMemoryTCP'});
         }
         if (property_exists($data, 'MemoryReservation') && $data->{'MemoryReservation'} !== null) {
             $object->setMemoryReservation($data->{'MemoryReservation'});
@@ -138,15 +145,18 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'OomKillDisable') && $data->{'OomKillDisable'} !== null) {
             $object->setOomKillDisable($data->{'OomKillDisable'});
         }
+        if (property_exists($data, 'Init') && $data->{'Init'} !== null) {
+            $object->setInit($data->{'Init'});
+        }
         if (property_exists($data, 'PidsLimit') && $data->{'PidsLimit'} !== null) {
             $object->setPidsLimit($data->{'PidsLimit'});
         }
         if (property_exists($data, 'Ulimits') && $data->{'Ulimits'} !== null) {
-            $values_7 = [];
-            foreach ($data->{'Ulimits'} as $value_7) {
-                $values_7[] = $this->denormalizer->denormalize($value_7, 'Docker\\API\\Model\\ResourcesUlimitsItem', 'json', $context);
+            $values_8 = [];
+            foreach ($data->{'Ulimits'} as $value_8) {
+                $values_8[] = $this->denormalizer->denormalize($value_8, 'Docker\\API\\Model\\ResourcesUlimitsItem', 'json', $context);
             }
-            $object->setUlimits($values_7);
+            $object->setUlimits($values_8);
         }
         if (property_exists($data, 'CpuCount') && $data->{'CpuCount'} !== null) {
             $object->setCpuCount($data->{'CpuCount'});
@@ -246,11 +256,18 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
             }
             $data->{'DeviceCgroupRules'} = $values_6;
         }
-        if (null !== $object->getDiskQuota()) {
-            $data->{'DiskQuota'} = $object->getDiskQuota();
+        if (null !== $object->getDeviceRequests()) {
+            $values_7 = [];
+            foreach ($object->getDeviceRequests() as $value_7) {
+                $values_7[] = $this->normalizer->normalize($value_7, 'json', $context);
+            }
+            $data->{'DeviceRequests'} = $values_7;
         }
         if (null !== $object->getKernelMemory()) {
             $data->{'KernelMemory'} = $object->getKernelMemory();
+        }
+        if (null !== $object->getKernelMemoryTCP()) {
+            $data->{'KernelMemoryTCP'} = $object->getKernelMemoryTCP();
         }
         if (null !== $object->getMemoryReservation()) {
             $data->{'MemoryReservation'} = $object->getMemoryReservation();
@@ -267,15 +284,18 @@ class ResourcesNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getOomKillDisable()) {
             $data->{'OomKillDisable'} = $object->getOomKillDisable();
         }
+        if (null !== $object->getInit()) {
+            $data->{'Init'} = $object->getInit();
+        }
         if (null !== $object->getPidsLimit()) {
             $data->{'PidsLimit'} = $object->getPidsLimit();
         }
         if (null !== $object->getUlimits()) {
-            $values_7 = [];
-            foreach ($object->getUlimits() as $value_7) {
-                $values_7[] = $this->normalizer->normalize($value_7, 'json', $context);
+            $values_8 = [];
+            foreach ($object->getUlimits() as $value_8) {
+                $values_8[] = $this->normalizer->normalize($value_8, 'json', $context);
             }
-            $data->{'Ulimits'} = $values_7;
+            $data->{'Ulimits'} = $values_8;
         }
         if (null !== $object->getCpuCount()) {
             $data->{'CpuCount'} = $object->getCpuCount();

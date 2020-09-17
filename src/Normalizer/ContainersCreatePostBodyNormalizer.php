@@ -29,7 +29,7 @@ class ContainersCreatePostBodyNormalizer implements DenormalizerInterface, Norma
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ContainersCreatePostBody;
+        return get_class($data) === 'Docker\\API\\Model\\ContainersCreatePostBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -149,7 +149,7 @@ class ContainersCreatePostBodyNormalizer implements DenormalizerInterface, Norma
             $object->setHostConfig($this->denormalizer->denormalize($data->{'HostConfig'}, 'Docker\\API\\Model\\HostConfig', 'json', $context));
         }
         if (property_exists($data, 'NetworkingConfig') && $data->{'NetworkingConfig'} !== null) {
-            $object->setNetworkingConfig($this->denormalizer->denormalize($data->{'NetworkingConfig'}, 'Docker\\API\\Model\\ContainersCreatePostBodyNetworkingConfig', 'json', $context));
+            $object->setNetworkingConfig($this->denormalizer->denormalize($data->{'NetworkingConfig'}, 'Docker\\API\\Model\\NetworkingConfig', 'json', $context));
         }
 
         return $object;

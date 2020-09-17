@@ -29,7 +29,7 @@ class ExecIdJsonGetResponse200Normalizer implements DenormalizerInterface, Norma
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ExecIdJsonGetResponse200;
+        return get_class($data) === 'Docker\\API\\Model\\ExecIdJsonGetResponse200';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

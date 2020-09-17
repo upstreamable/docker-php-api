@@ -29,7 +29,7 @@ class ImagesNameHistoryGetResponse200ItemNormalizer implements DenormalizerInter
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ImagesNameHistoryGetResponse200Item;
+        return get_class($data) === 'Docker\\API\\Model\\ImagesNameHistoryGetResponse200Item';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

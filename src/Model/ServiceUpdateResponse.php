@@ -22,7 +22,7 @@ class ServiceUpdateResponse
     /**
      * Optional warning messages.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getWarnings(): ?array
     {
@@ -32,9 +32,7 @@ class ServiceUpdateResponse
     /**
      * Optional warning messages.
      *
-     * @param string[] $warnings
-     *
-     * @return self
+     * @param string[]|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

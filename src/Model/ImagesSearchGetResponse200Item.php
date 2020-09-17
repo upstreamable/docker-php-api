@@ -33,19 +33,11 @@ class ImagesSearchGetResponse200Item
      */
     protected $starCount;
 
-    /**
-     * @return string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -53,19 +45,11 @@ class ImagesSearchGetResponse200Item
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getIsOfficial(): ?bool
     {
         return $this->isOfficial;
     }
 
-    /**
-     * @param bool $isOfficial
-     *
-     * @return self
-     */
     public function setIsOfficial(?bool $isOfficial): self
     {
         $this->isOfficial = $isOfficial;
@@ -73,19 +57,11 @@ class ImagesSearchGetResponse200Item
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getIsAutomated(): ?bool
     {
         return $this->isAutomated;
     }
 
-    /**
-     * @param bool $isAutomated
-     *
-     * @return self
-     */
     public function setIsAutomated(?bool $isAutomated): self
     {
         $this->isAutomated = $isAutomated;
@@ -93,19 +69,11 @@ class ImagesSearchGetResponse200Item
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -113,19 +81,11 @@ class ImagesSearchGetResponse200Item
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getStarCount(): ?int
     {
         return $this->starCount;
     }
 
-    /**
-     * @param int $starCount
-     *
-     * @return self
-     */
     public function setStarCount(?int $starCount): self
     {
         $this->starCount = $starCount;

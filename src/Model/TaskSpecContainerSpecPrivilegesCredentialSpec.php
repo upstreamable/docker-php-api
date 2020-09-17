@@ -13,49 +13,59 @@ namespace Docker\API\Model;
 class TaskSpecContainerSpecPrivilegesCredentialSpec
 {
     /**
-     * Load credential spec from this file. The file is read by the daemon, and must be present in the.
-    `CredentialSpecs` subdirectory in the docker data directory, which defaults to
-    `C:\ProgramData\Docker\` on Windows.
+     * Load credential spec from a Swarm Config with the given ID.
 
-    For example, specifying `spec.json` loads `C:\ProgramData\Docker\CredentialSpecs\spec.json`.
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
+     *
+     * @var string
+     */
+    protected $config;
+    /**
+     * Load credential spec from this file. The file is read by.
 
-    <p><br /></p>
-
-    > **Note**: `CredentialSpec.File` and `CredentialSpec.Registry` are mutually exclusive.
-
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
      *
      * @var string
      */
     protected $file;
     /**
-     * Load credential spec from this value in the Windows registry. The specified registry value must be.
-    located in:
+     * Load credential spec from this value in the Windows.
 
-    `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers\CredentialSpecs`
-
-    <p><br /></p>
-
-
-    > **Note**: `CredentialSpec.File` and `CredentialSpec.Registry` are mutually exclusive.
-
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
      *
      * @var string
      */
     protected $registry;
 
     /**
-     * Load credential spec from this file. The file is read by the daemon, and must be present in the.
-    `CredentialSpecs` subdirectory in the docker data directory, which defaults to
-    `C:\ProgramData\Docker\` on Windows.
+     * Load credential spec from a Swarm Config with the given ID.
 
-    For example, specifying `spec.json` loads `C:\ProgramData\Docker\CredentialSpecs\spec.json`.
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
+    > and `CredentialSpec.Config` are mutually exclusive.
+     */
+    public function getConfig(): ?string
+    {
+        return $this->config;
+    }
 
-    <p><br /></p>
+    /**
+     * Load credential spec from a Swarm Config with the given ID.
 
-    > **Note**: `CredentialSpec.File` and `CredentialSpec.Registry` are mutually exclusive.
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
+    > and `CredentialSpec.Config` are mutually exclusive.
+     */
+    public function setConfig(?string $config): self
+    {
+        $this->config = $config;
 
-     *
-     * @return string
+        return $this;
+    }
+
+    /**
+     * Load credential spec from this file. The file is read by.
+
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
+    > and `CredentialSpec.Config` are mutually exclusive.
      */
     public function getFile(): ?string
     {
@@ -63,20 +73,10 @@ class TaskSpecContainerSpecPrivilegesCredentialSpec
     }
 
     /**
-     * Load credential spec from this file. The file is read by the daemon, and must be present in the.
-    `CredentialSpecs` subdirectory in the docker data directory, which defaults to
-    `C:\ProgramData\Docker\` on Windows.
+     * Load credential spec from this file. The file is read by.
 
-    For example, specifying `spec.json` loads `C:\ProgramData\Docker\CredentialSpecs\spec.json`.
-
-    <p><br /></p>
-
-    > **Note**: `CredentialSpec.File` and `CredentialSpec.Registry` are mutually exclusive.
-
-     *
-     * @param string $file
-     *
-     * @return self
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
+    > and `CredentialSpec.Config` are mutually exclusive.
      */
     public function setFile(?string $file): self
     {
@@ -86,18 +86,10 @@ class TaskSpecContainerSpecPrivilegesCredentialSpec
     }
 
     /**
-     * Load credential spec from this value in the Windows registry. The specified registry value must be.
-    located in:
+     * Load credential spec from this value in the Windows.
 
-    `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers\CredentialSpecs`
-
-    <p><br /></p>
-
-
-    > **Note**: `CredentialSpec.File` and `CredentialSpec.Registry` are mutually exclusive.
-
-     *
-     * @return string
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
+    > and `CredentialSpec.Config` are mutually exclusive.
      */
     public function getRegistry(): ?string
     {
@@ -105,20 +97,10 @@ class TaskSpecContainerSpecPrivilegesCredentialSpec
     }
 
     /**
-     * Load credential spec from this value in the Windows registry. The specified registry value must be.
-    located in:
+     * Load credential spec from this value in the Windows.
 
-    `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers\CredentialSpecs`
-
-    <p><br /></p>
-
-
-    > **Note**: `CredentialSpec.File` and `CredentialSpec.Registry` are mutually exclusive.
-
-     *
-     * @param string $registry
-     *
-     * @return self
+    > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
+    > and `CredentialSpec.Config` are mutually exclusive.
      */
     public function setRegistry(?string $registry): self
     {

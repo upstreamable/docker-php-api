@@ -29,7 +29,7 @@ class ServiceSpecModeReplicatedNormalizer implements DenormalizerInterface, Norm
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ServiceSpecModeReplicated;
+        return get_class($data) === 'Docker\\API\\Model\\ServiceSpecModeReplicated';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

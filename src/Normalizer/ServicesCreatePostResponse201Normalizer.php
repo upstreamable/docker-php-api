@@ -29,7 +29,7 @@ class ServicesCreatePostResponse201Normalizer implements DenormalizerInterface, 
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\ServicesCreatePostResponse201;
+        return get_class($data) === 'Docker\\API\\Model\\ServicesCreatePostResponse201';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

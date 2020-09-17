@@ -16,11 +16,6 @@ class ImagePush extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     /**
      * Push an image to a registry.
-
-    If you wish to push an image on to a private registry, that image must already have a tag which references the registry. For example, `registry.example.com/myimage:latest`.
-
-    The push is cancelled if the HTTP connection is closed.
-
      *
      * @param string $name            image name or ID
      * @param array  $queryParameters {
@@ -30,7 +25,8 @@ class ImagePush extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @param array $headerParameters {
      *
-     *     @var string $X-Registry-Auth A base64-encoded auth configuration. [See the authentication section for details.](#section/Authentication)
+     *     @var string $X-Registry-Auth A base64url-encoded auth configuration.
+
      * }
      */
     public function __construct(string $name, array $queryParameters = [], array $headerParameters = [])
@@ -40,7 +36,8 @@ class ImagePush extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         $this->headerParameters = $headerParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait, \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\AmpArtaxEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
@@ -52,7 +49,7 @@ class ImagePush extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         return str_replace(['{name}'], [$this->name], '/images/{name}/push');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -89,8 +86,10 @@ class ImagePush extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Docker\API\Exception\ImagePushNotFoundException
      * @throws \Docker\API\Exception\ImagePushInternalServerErrorException
+     *
+     * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return null;

@@ -29,7 +29,7 @@ class BuildInfoNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\BuildInfo;
+        return get_class($data) === 'Docker\\API\\Model\\BuildInfo';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,7 +29,7 @@ class TaskSpecPlacementPreferencesItemSpreadNormalizer implements DenormalizerIn
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\TaskSpecPlacementPreferencesItemSpread;
+        return get_class($data) === 'Docker\\API\\Model\\TaskSpecPlacementPreferencesItemSpread';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

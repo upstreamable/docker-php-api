@@ -27,8 +27,6 @@ class MountVolumeOptionsDriverConfig
 
     /**
      * Name of the driver to use to create the volume.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -37,10 +35,6 @@ class MountVolumeOptionsDriverConfig
 
     /**
      * Name of the driver to use to create the volume.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -52,7 +46,7 @@ class MountVolumeOptionsDriverConfig
     /**
      * key/value map of driver specific options.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getOptions(): ?\ArrayObject
     {
@@ -62,9 +56,7 @@ class MountVolumeOptionsDriverConfig
     /**
      * key/value map of driver specific options.
      *
-     * @param string[] $options
-     *
-     * @return self
+     * @param string[]|null $options
      */
     public function setOptions(?\ArrayObject $options): self
     {

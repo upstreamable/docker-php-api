@@ -49,9 +49,9 @@ class ServiceSpec
      */
     protected $rollbackConfig;
     /**
-     * Array of network names or IDs to attach the service to.
+     * Specifies which networks the service should attach to.
      *
-     * @var ServiceSpecNetworksItem[]
+     * @var NetworkAttachmentConfig[]
      */
     protected $networks;
     /**
@@ -63,8 +63,6 @@ class ServiceSpec
 
     /**
      * Name of the service.
-     *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -73,10 +71,6 @@ class ServiceSpec
 
     /**
      * Name of the service.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -88,7 +82,7 @@ class ServiceSpec
     /**
      * User-defined key/value metadata.
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getLabels(): ?\ArrayObject
     {
@@ -98,9 +92,7 @@ class ServiceSpec
     /**
      * User-defined key/value metadata.
      *
-     * @param string[] $labels
-     *
-     * @return self
+     * @param string[]|null $labels
      */
     public function setLabels(?\ArrayObject $labels): self
     {
@@ -111,8 +103,6 @@ class ServiceSpec
 
     /**
      * User modifiable task configuration.
-     *
-     * @return TaskSpec
      */
     public function getTaskTemplate(): ?TaskSpec
     {
@@ -121,10 +111,6 @@ class ServiceSpec
 
     /**
      * User modifiable task configuration.
-     *
-     * @param TaskSpec $taskTemplate
-     *
-     * @return self
      */
     public function setTaskTemplate(?TaskSpec $taskTemplate): self
     {
@@ -135,8 +121,6 @@ class ServiceSpec
 
     /**
      * Scheduling mode for the service.
-     *
-     * @return ServiceSpecMode
      */
     public function getMode(): ?ServiceSpecMode
     {
@@ -145,10 +129,6 @@ class ServiceSpec
 
     /**
      * Scheduling mode for the service.
-     *
-     * @param ServiceSpecMode $mode
-     *
-     * @return self
      */
     public function setMode(?ServiceSpecMode $mode): self
     {
@@ -159,8 +139,6 @@ class ServiceSpec
 
     /**
      * Specification for the update strategy of the service.
-     *
-     * @return ServiceSpecUpdateConfig
      */
     public function getUpdateConfig(): ?ServiceSpecUpdateConfig
     {
@@ -169,10 +147,6 @@ class ServiceSpec
 
     /**
      * Specification for the update strategy of the service.
-     *
-     * @param ServiceSpecUpdateConfig $updateConfig
-     *
-     * @return self
      */
     public function setUpdateConfig(?ServiceSpecUpdateConfig $updateConfig): self
     {
@@ -183,8 +157,6 @@ class ServiceSpec
 
     /**
      * Specification for the rollback strategy of the service.
-     *
-     * @return ServiceSpecRollbackConfig
      */
     public function getRollbackConfig(): ?ServiceSpecRollbackConfig
     {
@@ -193,10 +165,6 @@ class ServiceSpec
 
     /**
      * Specification for the rollback strategy of the service.
-     *
-     * @param ServiceSpecRollbackConfig $rollbackConfig
-     *
-     * @return self
      */
     public function setRollbackConfig(?ServiceSpecRollbackConfig $rollbackConfig): self
     {
@@ -206,9 +174,9 @@ class ServiceSpec
     }
 
     /**
-     * Array of network names or IDs to attach the service to.
+     * Specifies which networks the service should attach to.
      *
-     * @return ServiceSpecNetworksItem[]
+     * @return NetworkAttachmentConfig[]|null
      */
     public function getNetworks(): ?array
     {
@@ -216,11 +184,9 @@ class ServiceSpec
     }
 
     /**
-     * Array of network names or IDs to attach the service to.
+     * Specifies which networks the service should attach to.
      *
-     * @param ServiceSpecNetworksItem[] $networks
-     *
-     * @return self
+     * @param NetworkAttachmentConfig[]|null $networks
      */
     public function setNetworks(?array $networks): self
     {
@@ -231,8 +197,6 @@ class ServiceSpec
 
     /**
      * Properties that can be configured to access and load balance a service.
-     *
-     * @return EndpointSpec
      */
     public function getEndpointSpec(): ?EndpointSpec
     {
@@ -241,10 +205,6 @@ class ServiceSpec
 
     /**
      * Properties that can be configured to access and load balance a service.
-     *
-     * @param EndpointSpec $endpointSpec
-     *
-     * @return self
      */
     public function setEndpointSpec(?EndpointSpec $endpointSpec): self
     {

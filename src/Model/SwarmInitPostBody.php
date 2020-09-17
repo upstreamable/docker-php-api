@@ -13,36 +13,47 @@ namespace Docker\API\Model;
 class SwarmInitPostBody
 {
     /**
-     * Listen address used for inter-manager communication, as well as determining the networking interface used for the VXLAN Tunnel Endpoint (VTEP). This can either be an address/port combination in the form `192.168.1.1:4567`, or an interface followed by a port number, like `eth0:4567`. If the port number is omitted, the default swarm listening port is used.
+     * Listen address used for inter-manager communication, as well.
      *
      * @var string
      */
     protected $listenAddr;
     /**
-     * Externally reachable address advertised to other nodes. This can either be an address/port combination in the form `192.168.1.1:4567`, or an interface followed by a port number, like `eth0:4567`. If the port number is omitted, the port number from the listen address is used. If `AdvertiseAddr` is not specified, it will be automatically detected when possible.
+     * Externally reachable address advertised to other nodes. This.
      *
      * @var string
      */
     protected $advertiseAddr;
     /**
-     * Address or interface to use for data path traffic (format: `<ip|interface>`), for example,  `192.168.1.1`,.
-    or an interface, like `eth0`. If `DataPathAddr` is unspecified, the same address as `AdvertiseAddr`
-    is used.
-
-    The `DataPathAddr` specifies the address that global scope network drivers will publish towards other
-    nodes in order to reach the containers running on this node. Using this parameter it is possible to
-    separate the container data traffic from the management traffic of the cluster.
-
+     * Address or interface to use for data path traffic (format:.
      *
      * @var string
      */
     protected $dataPathAddr;
+    /**
+     * DataPathPort specifies the data path port number for data traffic.
+     *
+     * @var int
+     */
+    protected $dataPathPort;
+    /**
+     * Default Address Pool specifies default subnet pools for global.
+     *
+     * @var string[]
+     */
+    protected $defaultAddrPool;
     /**
      * Force creation of a new swarm.
      *
      * @var bool
      */
     protected $forceNewCluster;
+    /**
+     * SubnetSize specifies the subnet size of the networks created.
+     *
+     * @var int
+     */
+    protected $subnetSize;
     /**
      * User modifiable swarm configuration.
      *
@@ -51,9 +62,7 @@ class SwarmInitPostBody
     protected $spec;
 
     /**
-     * Listen address used for inter-manager communication, as well as determining the networking interface used for the VXLAN Tunnel Endpoint (VTEP). This can either be an address/port combination in the form `192.168.1.1:4567`, or an interface followed by a port number, like `eth0:4567`. If the port number is omitted, the default swarm listening port is used.
-     *
-     * @return string
+     * Listen address used for inter-manager communication, as well.
      */
     public function getListenAddr(): ?string
     {
@@ -61,11 +70,7 @@ class SwarmInitPostBody
     }
 
     /**
-     * Listen address used for inter-manager communication, as well as determining the networking interface used for the VXLAN Tunnel Endpoint (VTEP). This can either be an address/port combination in the form `192.168.1.1:4567`, or an interface followed by a port number, like `eth0:4567`. If the port number is omitted, the default swarm listening port is used.
-     *
-     * @param string $listenAddr
-     *
-     * @return self
+     * Listen address used for inter-manager communication, as well.
      */
     public function setListenAddr(?string $listenAddr): self
     {
@@ -75,9 +80,7 @@ class SwarmInitPostBody
     }
 
     /**
-     * Externally reachable address advertised to other nodes. This can either be an address/port combination in the form `192.168.1.1:4567`, or an interface followed by a port number, like `eth0:4567`. If the port number is omitted, the port number from the listen address is used. If `AdvertiseAddr` is not specified, it will be automatically detected when possible.
-     *
-     * @return string
+     * Externally reachable address advertised to other nodes. This.
      */
     public function getAdvertiseAddr(): ?string
     {
@@ -85,11 +88,7 @@ class SwarmInitPostBody
     }
 
     /**
-     * Externally reachable address advertised to other nodes. This can either be an address/port combination in the form `192.168.1.1:4567`, or an interface followed by a port number, like `eth0:4567`. If the port number is omitted, the port number from the listen address is used. If `AdvertiseAddr` is not specified, it will be automatically detected when possible.
-     *
-     * @param string $advertiseAddr
-     *
-     * @return self
+     * Externally reachable address advertised to other nodes. This.
      */
     public function setAdvertiseAddr(?string $advertiseAddr): self
     {
@@ -99,16 +98,7 @@ class SwarmInitPostBody
     }
 
     /**
-     * Address or interface to use for data path traffic (format: `<ip|interface>`), for example,  `192.168.1.1`,.
-    or an interface, like `eth0`. If `DataPathAddr` is unspecified, the same address as `AdvertiseAddr`
-    is used.
-
-    The `DataPathAddr` specifies the address that global scope network drivers will publish towards other
-    nodes in order to reach the containers running on this node. Using this parameter it is possible to
-    separate the container data traffic from the management traffic of the cluster.
-
-     *
-     * @return string
+     * Address or interface to use for data path traffic (format:.
      */
     public function getDataPathAddr(): ?string
     {
@@ -116,18 +106,7 @@ class SwarmInitPostBody
     }
 
     /**
-     * Address or interface to use for data path traffic (format: `<ip|interface>`), for example,  `192.168.1.1`,.
-    or an interface, like `eth0`. If `DataPathAddr` is unspecified, the same address as `AdvertiseAddr`
-    is used.
-
-    The `DataPathAddr` specifies the address that global scope network drivers will publish towards other
-    nodes in order to reach the containers running on this node. Using this parameter it is possible to
-    separate the container data traffic from the management traffic of the cluster.
-
-     *
-     * @param string $dataPathAddr
-     *
-     * @return self
+     * Address or interface to use for data path traffic (format:.
      */
     public function setDataPathAddr(?string $dataPathAddr): self
     {
@@ -137,9 +116,47 @@ class SwarmInitPostBody
     }
 
     /**
-     * Force creation of a new swarm.
+     * DataPathPort specifies the data path port number for data traffic.
+     */
+    public function getDataPathPort(): ?int
+    {
+        return $this->dataPathPort;
+    }
+
+    /**
+     * DataPathPort specifies the data path port number for data traffic.
+     */
+    public function setDataPathPort(?int $dataPathPort): self
+    {
+        $this->dataPathPort = $dataPathPort;
+
+        return $this;
+    }
+
+    /**
+     * Default Address Pool specifies default subnet pools for global.
      *
-     * @return bool
+     * @return string[]|null
+     */
+    public function getDefaultAddrPool(): ?array
+    {
+        return $this->defaultAddrPool;
+    }
+
+    /**
+     * Default Address Pool specifies default subnet pools for global.
+     *
+     * @param string[]|null $defaultAddrPool
+     */
+    public function setDefaultAddrPool(?array $defaultAddrPool): self
+    {
+        $this->defaultAddrPool = $defaultAddrPool;
+
+        return $this;
+    }
+
+    /**
+     * Force creation of a new swarm.
      */
     public function getForceNewCluster(): ?bool
     {
@@ -148,10 +165,6 @@ class SwarmInitPostBody
 
     /**
      * Force creation of a new swarm.
-     *
-     * @param bool $forceNewCluster
-     *
-     * @return self
      */
     public function setForceNewCluster(?bool $forceNewCluster): self
     {
@@ -161,9 +174,25 @@ class SwarmInitPostBody
     }
 
     /**
+     * SubnetSize specifies the subnet size of the networks created.
+     */
+    public function getSubnetSize(): ?int
+    {
+        return $this->subnetSize;
+    }
+
+    /**
+     * SubnetSize specifies the subnet size of the networks created.
+     */
+    public function setSubnetSize(?int $subnetSize): self
+    {
+        $this->subnetSize = $subnetSize;
+
+        return $this;
+    }
+
+    /**
      * User modifiable swarm configuration.
-     *
-     * @return SwarmSpec
      */
     public function getSpec(): ?SwarmSpec
     {
@@ -172,10 +201,6 @@ class SwarmInitPostBody
 
     /**
      * User modifiable swarm configuration.
-     *
-     * @param SwarmSpec $spec
-     *
-     * @return self
      */
     public function setSpec(?SwarmSpec $spec): self
     {

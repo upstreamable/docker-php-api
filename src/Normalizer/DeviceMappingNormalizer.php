@@ -29,7 +29,7 @@ class DeviceMappingNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsNormalization($data, $format = null)
     {
-        return $data instanceof \Docker\API\Model\DeviceMapping;
+        return get_class($data) === 'Docker\\API\\Model\\DeviceMapping';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
