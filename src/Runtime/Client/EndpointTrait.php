@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Docker\API\Runtime\Client;
 
-use Jane\OpenApiRuntime\Client\Exception\InvalidFetchModeException;
+use Docker\API\Runtime\Client\Exception\InvalidFetchModeException;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 

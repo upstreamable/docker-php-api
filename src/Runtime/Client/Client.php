@@ -17,6 +17,8 @@ abstract class Client
 
     public const FETCH_OBJECT = 'object';
 
+    public const SCOPES_HEADER = 'X-Docker-Authentication';
+
     /**
      * @var ClientInterface
      */
@@ -71,7 +73,7 @@ abstract class Client
             foreach ($endpoint->getAuthenticationScopes() as $scope) {
                 $scopes[] = $scope;
             }
-            $request = $request->withHeader(AuthenticationRegistry::SCOPES_HEADER, $scopes);
+            $request = $request->withHeader(self::SCOPES_HEADER, $scopes);
         }
 
         return $endpoint->parseResponse($this->httpClient->sendRequest($request), $this->serializer, $fetch);
