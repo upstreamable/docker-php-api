@@ -1,5 +1,6 @@
 {
     "name": "romantomchak/docker-php-api",
+    "version": "6.1.40.2",
     "license": "MIT",
     "type": "library",
     "description": "Docker API generated files from OpenAPI Specification",
